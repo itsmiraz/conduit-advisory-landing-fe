@@ -32,7 +32,7 @@ const audiences = [
 ];
 const WhoThisFor = () => {
   return (
-    <div className="py-[31px]">
+    <div className="py-[31px] mb-[285px]">
       <div className="flex flex-col justify-center items-center">
         <p className="uppercase px-[16px] py-[10px] w-fit  font-semibold text-[16px] rounded-[40px] flex items-center gap-x-4 bg-[#D6BEFF]/10">
           <StarIcon /> WHO IS THIS FOR?
