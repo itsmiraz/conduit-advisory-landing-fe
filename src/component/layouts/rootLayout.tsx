@@ -4,7 +4,7 @@ import Footer from "../ui/footer";
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div>
+    <div className="overflow-hidden">
       <Header />
       <div>{children}</div>
       <Footer />

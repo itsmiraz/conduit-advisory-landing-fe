@@ -22,7 +22,7 @@ const Header = () => {
   ];
 
   return (
-    <div className="max-w-[1220px] mt-[32px] mx-auto bg-[#D6BEFF14] rounded-[12px] border-[1px] border-[#FFFFFF14] p-[10px] font-sans flex justify-between items-center">
+    <div className="max-w-[1220px] z-40 mt-[32px] mx-auto bg-[#D6BEFF14] rounded-[12px] border-[1px] border-[#FFFFFF14] p-[10px] font-sans flex justify-between items-center">
      <div className="pl-2">
        <img src={logo} alt="" />
      </div>
