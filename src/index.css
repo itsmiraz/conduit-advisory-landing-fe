@@ -7,3 +7,7 @@ body{
     background-color:#000000 ;
     color:#FFFFFF ;
 }
+
+.buttonInnerShadow{
+    box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.4) inset;
+}
