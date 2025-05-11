@@ -76,3 +76,78 @@ body {
   filter: blur(100px);
   transform: rotate(-90deg);
 }
+
+.featureCardContainer {
+  display: flex;
+  gap: 2.5rem; /* gap-10 */
+  padding-top: 34px;
+}
+
+.featureCardBg {
+  position: relative;
+  background-color: #d6beff14;
+  overflow: hidden;
+  transition: background-color 0.4s ease;
+}
+
+.featureCardBg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      0deg,
+      rgba(214, 190, 255, 0.08),
+      rgba(214, 190, 255, 0.08)
+    ),
+    conic-gradient(
+      from -59.09deg at 66.71% 46.22%,
+      #9216ff 0deg,
+      #d6beff 182.53deg,
+      #9216ff 360deg
+    );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.featureCardBg > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Default: first card has gradient */
+.featureCardContainer .featureCardBg:first-child::before {
+  opacity: 1;
+}
+
+/* If any card is hovered, remove gradient from first */
+.featureCardContainer:hover .featureCardBg:first-child::before {
+  opacity: 0;
+}
+
+/* Only apply gradient to hovered card */
+.featureCardBg:hover::before {
+  opacity: 1;
+}
+
+/* Default p tag color */
+.featureCardBg p {
+  color: #9d9ca3;
+  transition: color 0.4s ease;
+}
+
+/* First card <p> is white by default */
+.featureCardContainer .featureCardBg:first-child p {
+  color: white;
+}
+
+/* But when any card is hovered, reset first card <p> */
+.featureCardContainer:hover .featureCardBg:first-child p {
+  color: #9d9ca3;
+}
+
+/* Hovered card's <p> is white */
+.featureCardBg:hover p {
+  color: white;
+}
