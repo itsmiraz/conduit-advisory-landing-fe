@@ -46,16 +46,16 @@ const Footer = () => {
   ];
 
   return (
-    <div className="max-w-[1220px] py-[32px] mx-auto ">
-      <div className="justify-between w-full pb-[48px] flex ">
-        <div className="max-w-[380px]  ">
-          <img src={logo} alt="" />
-          <p className="py-[14px] text-[16px">
+    <div className="max-w-[1220px] px-[20px] py-[32px] mx-auto ">
+      <div className="justify-between  md:flex-row flex-col md:justify-center md:items-start items-center w-full pb-[48px] flex ">
+        <div className="max-w-[380px] flex flex-col  md:justify-start items-center md:items-start  justify-center ">
+          <img src={logo} className="w-[170px]" alt="" />
+          <p className="py-[14px] md:text-start text-center text-[16px">
             With VortExpert as your trusted partner, you can unlock the full
             potential of your online presence and achieve long-lasting success
             in the digital landscape.
           </p>
-          <div className="flex w-full items-center gap-x-4">
+          <div className="flex w-full md:justify-start justify-center items-center gap-x-4">
             {socialLinks.map((item, i) => (
               <a key={i} href={item.link}>
                 {item.icon}
@@ -64,16 +64,16 @@ const Footer = () => {
           </div>
         </div>
         {/* Render each category in its own column */}
-        <div className="flex  gap-14">
+        <div className=" flex mt-[24px] md:mt-0 flex-wrap gap-14">
           {Object.entries(footerLinks).map(([category, links]) => (
             <div className="">
-              <h3 className="text-[16px] pb-[12px]">{category}</h3>
+              <h3 className="text-[12px] md:text-[16px] pb-[12px]">{category}</h3>
               <ul className="space-y-[14px]">
                 {links.map((item, index) => (
                   <li key={index}>
                     <a
                       href={item.link}
-                      className="text-[18px] font-semibold hover:underline"
+                      className="text-[14px] md:text-[18px] font-semibold hover:underline"
                     >
                       {item.label}
                     </a>

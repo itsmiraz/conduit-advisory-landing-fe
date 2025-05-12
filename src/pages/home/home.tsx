@@ -9,12 +9,12 @@ import Cta from "./components/cta";
 const Home = () => {
   return (
     <div>
-      <Hero />
+      {/* <Hero />
       <WhoThisFor />
       <Expertise />
       <WhyChooseUs />
       <Testimonials />
-      <Cta/>
+      <Cta/> */}
     </div>
   );
 };
