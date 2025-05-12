@@ -19,10 +19,11 @@ const Cta = () => {
             <AiIcon /> Get Started Today
           </button>
 
+        
+        </div>
           <div className="absolute top-0 left-0">
             <Line />
           </div>
-        </div>
       </div>
     </div>
   );

@@ -18,12 +18,12 @@ body {
       rgba(148, 26, 255, 0) 36.7%
     ),
     radial-gradient(
-        39.25% 39.25% at 86.56% 95%,
-        #ffffff 0%,
-        rgba(148, 26, 255, 0) 100%
-      )
-      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+      39.25% 39.25% at 86.56% 95%,
+      #ffffff 0%,
+      rgba(148, 26, 255, 0) 100%
+    );
 }
+
 .buttonBgTop {
   /* Frame 27 */
 
@@ -34,7 +34,7 @@ body {
   align-items: center;
   padding: 14px 20px;
   gap: 8px;
-
+  transition: background 0.5s ease;
   background: radial-gradient(
       41.9% 50% at 50% 88.54%,
       #d298ff 0%,
@@ -171,7 +171,7 @@ body {
 .custom-bullet {
   width: 12px;
   height: 12px;
-  background-color: #D6BEFF; /* White color for inactive bullets */
+  background-color: #d6beff; /* White color for inactive bullets */
   border-radius: 50%;
   margin: 0 5px;
   display: inline-block;
@@ -184,13 +184,11 @@ body {
   width: 12px;
   height: 12px;
   border-radius: 20px;
-  background-color: #9216FF; /* Green color for active bullet */
+  background-color: #9216ff; /* Green color for active bullet */
   transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
     background-color 0.3s ease-in-out, border-radius 0.3s ease-in-out;
 }
 
-.ctaBG{
-  background: linear-gradient(180deg, #9216FF 0%, #4A0B81 50%, #290648 100%);
-
-
+.ctaBG {
+  background: linear-gradient(180deg, #9216ff 0%, #4a0b81 50%, #290648 100%);
 }
