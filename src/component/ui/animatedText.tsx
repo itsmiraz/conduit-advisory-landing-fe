@@ -29,14 +29,14 @@ const AnimatedText = ({ children }: { children: ReactNode }) => {
   return (
     <div
       ref={ref}
-      className="text-[72px]  leading-[110%]  overflow-hidden text-primary font-bold inline-flex flex-wrap justify-center"
+      className="text-[32px] md:text-[72px]  leading-[120%]  overflow-hidden text-primary font-bold inline-flex flex-wrap justify-center"
     >
       {parts.map((part, i) => {
         if (typeof part === "string") {
           return (
             <span key={i} className="overflow-hidden md:h-[80px]">
               <motion.span
-                className="inline-block pr-2"
+                className="inline-block pr-1 md:pr-2"
                 variants={pullupVariant}
                 initial="initial"
                 animate={inView ? "animate" : "initial"}

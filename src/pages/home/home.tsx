@@ -9,8 +9,8 @@ import Cta from "./components/cta";
 const Home = () => {
   return (
     <div>
-      {/* <Hero />
-      <WhoThisFor />
+     <Hero />
+     {/*   <WhoThisFor />
       <Expertise />
       <WhyChooseUs />
       <Testimonials />

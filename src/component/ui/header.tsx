@@ -57,7 +57,7 @@ const Header = () => {
         <div
           className={`${
             isOpen ? "top-0" : "-top-[400px]"
-          } absolute  z-50 left-0 bg-[#6f4ab1]/10 pb-[40px] px-[24px] pt-[24px] w-full border rounded-[12px] flex flex-col justify-center transition-all ease-in-out duration-300 items-center border-[#FFFFFF14] backdrop-blur-sm`}
+          } absolute  z-50 left-0 bg-[#371e63]/10 pb-[40px] px-[24px] pt-[24px] w-full border rounded-[12px] flex flex-col justify-center transition-all ease-in-out duration-300 items-center border-[#FFFFFF14] backdrop-blur-lg`}
         >
           <div className="w-full flex justify-end">
             <button
