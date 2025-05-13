@@ -37,7 +37,7 @@ const WhyChooseUs = () => {
         <div className="flex justify-between items-end">
           <div>
             <p className="uppercase px-[16px] py-[10px] w-fit  font-semibold text-[14px] md:text-[16px] rounded-[40px] flex items-center gap-x-4 bg-[#D6BEFF]/10">
-              <StarIcon /> WHO IS THIS FOR?
+              <StarIcon /> WHY CHOOSE US?
             </p>
             <h2 className= "text-[28px] md:text-[40px] pt-[18px] font-medium font-instrument">
               Because we're the only agency focused on <br className="md:block hidden" />{" "}

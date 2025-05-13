@@ -47,7 +47,7 @@ const Footer = () => {
 
   return (
     <div className="max-w-[1220px] px-[20px] py-[32px] mx-auto ">
-      <div className="justify-between  md:flex-row flex-col md:justify-center md:items-start items-center w-full pb-[48px] flex ">
+      <div className="justify-between  md:flex-row flex-col md:justify-between md:items-start items-center w-full pb-[48px] flex ">
         <div className="max-w-[380px] flex flex-col  md:justify-start items-center md:items-start  justify-center ">
           <img src={logo} className="w-[170px]" alt="" />
           <p className="py-[14px] md:text-start text-center text-[16px">
