@@ -56,7 +56,7 @@ const Expertise = () => {
       {/* Glowing line  */}
       <img
         src={GlowingLine}
-        className="absolute top-0 left-1/2 transform -translate-x-1/3"
+        className="absolute -top-0.5 left-1/2 transform -translate-x-1/2"
         alt=""
       />
      

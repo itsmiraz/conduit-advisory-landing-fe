@@ -2,7 +2,7 @@ import { motion, Variants } from "framer-motion";
 import { ReactNode } from "react";
 import { useInView } from "react-intersection-observer";
 
-const AnimatedText = ({ children }: { children: ReactNode }) => {
+const AnimatedText = ({ children ,  className = "text-[32px] md:text-[72px] leading-[120%] overflow-hidden text-primary font-bold inline-flex flex-wrap justify-center",}: { children: ReactNode ,  className?: string;}) => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
 
   const pullupVariant: Variants = {
@@ -29,7 +29,7 @@ const AnimatedText = ({ children }: { children: ReactNode }) => {
   return (
     <div
       ref={ref}
-      className="text-[32px] md:text-[72px]  leading-[120%]  overflow-hidden text-primary font-bold inline-flex flex-wrap justify-center"
+      className={className}
     >
       {parts.map((part, i) => {
         if (typeof part === "string") {

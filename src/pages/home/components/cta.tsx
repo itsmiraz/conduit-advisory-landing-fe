@@ -1,7 +1,8 @@
-import React from "react";
 import AiIcon from "@/assets/icons/ai.svg";
 import Line from "@/assets/icons/ctaLines.svg";
 import SmallLine from "@/assets/icons/smallCTAline.svg";
+
+
 const Cta = () => {
   return (
     <div className="py-[100px] px-[20px] ">
