@@ -10,8 +10,8 @@ const Home = () => {
   return (
     <div>
      <Hero />
-     {/*   <WhoThisFor />
-      <Expertise />
+       <WhoThisFor />
+    {/*   <Expertise />
       <WhyChooseUs />
       <Testimonials />
       <Cta/> */}
