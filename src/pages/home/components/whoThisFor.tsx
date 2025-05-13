@@ -60,7 +60,7 @@ const WhoThisFor = () => {
         </div>
         {/* mobile view */}
         <div 
-          className=" relative   ">
+          className=" relative md:hidden block  ">
           {audiences.slice(0,2).map((item, i) => (
             <div
               className="px-[16px]  md:px-[40px] flex flex-col justify-center items-center py-[16px]"

@@ -52,19 +52,20 @@ const services = [
 
 const Expertise = () => {
   return (
-    <div className="pt-[120px] flex flex-col justify-center items-center overflow-hidden relative  pb-[53px] mx-auto px-20">
+    <div className="pt-[48px] md:pt-[120px] flex flex-col justify-center items-center overflow-hidden relative  pb-[53px] mx-auto px-[20px] md:px-20">
       {/* Glowing line  */}
       <img
         src={GlowingLine}
-        className="absolute top-0 left-1/2 transform -translate-x-1/2"
+        className="absolute top-0 left-1/2 transform -translate-x-1/3"
         alt=""
       />
+     
 
       {/* Glowing Pill */}
 
       <img
         src={VioletPill}
-        className="absolute -top-[600px] left-1/2 transform -translate-x-1/2"
+        className="absolute md:max-w-fit max-w-[1200px] -top-[600px] md:-top-[600px] left-1/2 transform -translate-x-1/2"
         alt=""
       />
 
@@ -72,22 +73,22 @@ const Expertise = () => {
 
       <img
         src={StarGraphic}
-        className="absolute -top-20 w-[1310px] left-1/3 "
+        className="hidden md:absolute -top-20 w-[1310px] left-1/3 "
         alt=""
       />
 
       {/* Bottom Graphic */}
 
-      <img src={BottomLine} className="absolute bottom-5 left-0 " alt="" />
+      <img src={BottomLine} className="absolute bottom-5 -left-[180px] md:left-0 " alt="" />
 
       <div className="relative  max-w-[1440px]  z-20">
-        <h2 className="text-[56px] font-semibold pb-[48px] leading-[120%] text-center">
+        <h2 className="text-[32px] md:text-[56px] font-semibold pb-[48px] leading-[120%] text-center">
           Our Expertise
         </h2>
-        <div className="grid grid-cols-3 gap-[40px]">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-[14px] md:gap-[40px]">
           {services.map((item, i) => (
             <div
-              className="bg-[#D6BEFF14] rounded-[16px] border-[1px] border-[#FFFFFF14] backdrop-blur-sm p-[24px]"
+              className="bg-[#D6BEFF14] rounded-[16px] border-[1px] border-[#FFFFFF14] backdrop-blur-sm p-[12px] md:p-[24px]"
               key={i}
             >
               <div>{item.icon}</div>

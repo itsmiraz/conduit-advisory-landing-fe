@@ -83,17 +83,17 @@ const Testimonials = () => {
         <div className="translate-y-8">
           <QuoteIcon />
         </div>
-        <h2 className="text-[56px] font-semibold leading-[120%]">
+        <h2 className="text-[32px] md:text-[56px] font-semibold leading-[120%]">
           Testimonials
         </h2>
       </div>
       <div className="py-12 relative px-4">
-        <div className="h-full bg-gradient-to-r to-[#00000000] from-[#000000] absolute left-0 top-0 w-[400px] z-10"></div>
-        <div className="h-full bg-gradient-to-r from-[#00000000] to-[#000000] absolute right-0 top-0 w-[400px] z-10"></div>
+        <div className="h-full md:block hidden bg-gradient-to-r to-[#00000000] from-[#000000] absolute left-0 top-0 w-[400px] z-10"></div>
+        <div className="h-full md:block hidden bg-gradient-to-r from-[#00000000] to-[#000000] absolute right-0 top-0 w-[400px] z-10"></div>
         <Swiper
           ref={swiperRef}
           modules={[Pagination, Navigation,Autoplay]}
-          slidesPerView={1.2}
+          // slidesPerView={1.2}
           pagination={{
             el: ".custom-pagination",
             clickable: true,
@@ -113,6 +113,7 @@ const Testimonials = () => {
           }}
           onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           breakpoints={{
+            450: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
@@ -120,7 +121,7 @@ const Testimonials = () => {
           {testimonials.map((t, i) => (
             <SwiperSlide key={i}>
               <div
-                className={`transition-all border select-none cursor-pointer duration-300 w-[380px] mx-auto p-6 rounded-[16px]  
+                className={`transition-all border select-none cursor-pointer duration-300 w-full md:w-[380px] mx-auto p-6 rounded-[16px]  
               ${
                 i === activeIndex
                   ? "testimonialCardBg border-[#9216FF] text-[#E2E1E5]"
@@ -166,7 +167,7 @@ const Testimonials = () => {
       />
       <img
         src={IndigoRoundGlow}
-        className="absolute -bottom-[400px] left-1/2 transform -translate-x-1/2"
+        className="absolute  md:max-w-fit max-w-[1000px] -bottom-[400px] left-1/2 transform -translate-x-1/2"
         alt=""
       />
 
