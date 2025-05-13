@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "@/assets/images/logo.png";
 import { motion } from "framer-motion";
 import Menu from "@/assets/icons/menu.svg";
+import Close from "@/assets/icons/close.svg";
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const navLinks = [
     {
       link: "/",
@@ -28,7 +31,7 @@ const Header = () => {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="max-w-[1220px] mt-[24px] z-40 md:mt-[32px] mx-auto bg-[#D6BEFF14] rounded-[12px] border-[1px] border-[#FFFFFF14] p-[6px] md:p-[10px] font-sans flex justify-between items-center"
+        className="max-w-[1220px] mt-[24px] z-40 md:mt-[32px] mx-auto bg-[#D6BEFF14] rounded-[12px] border-[1px] border-[#FFFFFF14] p-[6px] md:p-[10px] font-sans flex justify-between relative items-center"
       >
         <div className="pl-2">
           <img src={logo} className="md:w-fit w-[119px]" alt="" />
@@ -41,11 +44,41 @@ const Header = () => {
           ))}
         </ul>
         <div className="flex items-center gap-x-2">
-          <button className="buttonInnerShadow z-50 rounded-[10px] py-[10px] px-[20px] md:px-[28px]  font-semibold text-[12px] md:text-[16px] ">
+          <button className="buttonInnerShadow z-40 rounded-[10px] py-[10px] px-[20px] md:px-[28px]  font-semibold text-[12px] md:text-[16px] ">
             Book A Call
           </button>
-          <button className="block md:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="block md:hidden"
+          >
             <Menu />
+          </button>
+        </div>
+        <div
+          className={`${
+            isOpen ? "top-0" : "-top-[400px]"
+          } absolute  z-50 left-0 bg-[#6f4ab1]/10 pb-[40px] px-[24px] pt-[24px] w-full border rounded-[12px] flex flex-col justify-center transition-all ease-in-out duration-300 items-center border-[#FFFFFF14] backdrop-blur-sm`}
+        >
+          <div className="w-full flex justify-end">
+            <button
+              onClick={() => setIsOpen(false)}
+              className=" justify-end flex md:hidden"
+            >
+              <Close />
+            </button>
+          </div>
+          <div className="pt-[24px]">
+            <img src={logo} className="w-[176px]" alt="" />
+          </div>
+          <ul className="flex pt-[24px] flex-col  items-center gap-5">
+            {navLinks.map((item, i) => (
+              <li key={i} className="text-[16px] font-medium ">
+                <a className="cursor-pointer">{item.label}</a>
+              </li>
+            ))}
+          </ul>
+          <button className="buttonInnerShadow z-40 mt-[24px] rounded-[10px] py-[10px] px-[20px] md:px-[28px]  font-semibold text-[12px] md:text-[16px] ">
+            Book A Call
           </button>
         </div>
       </motion.div>
