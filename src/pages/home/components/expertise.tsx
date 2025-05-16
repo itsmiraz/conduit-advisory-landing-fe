@@ -95,7 +95,7 @@ const Expertise = () => {
               <h3 className="pb-[8px] pt-[16px] font-semibold text-[18px] ">
                 {item.title}
               </h3>
-              <p className="text-[16px] leading-[24px] text-[#9D9CA3] ">
+              <p className="text-[16px]  md:block hidden leading-[24px] text-[#9D9CA3] ">
                 {item.description}
               </p>
             </div>

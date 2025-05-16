@@ -10,31 +10,47 @@ body {
 .buttonInnerShadow {
   box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.4) inset;
 }
-
 .buttonBgBottom {
+  position: relative;
+  display: inline-block;
+  padding: 1px;
+  border-radius: 9999px;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.buttonBgBottom::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
-      140.86deg,
-      #ffffff 18.21%,
-      rgba(148, 26, 255, 0) 36.7%
+      140deg,
+      #ffffff 20%,
+      rgba(148, 26, 255, 0) 60%
     ),
     radial-gradient(
-      39.25% 39.25% at 86.56% 95%,
+      39.25% 39.25% at 86% 95%,
       #ffffff 0%,
       rgba(148, 26, 255, 0) 100%
     );
+  z-index: -1;
+  transition: transform 0.8s ease;
+  transform: translate(0px, 0px);
+  border-radius: inherit;
+}
+
+.buttonBgBottom:hover::before {
+  transform: translate(-0px, 2px);
 }
 
 .buttonBgTop {
-  /* Frame 27 */
-
-  /* Auto layout */
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 14px 20px;
   gap: 8px;
-  transition: background 0.5s ease;
+  transition: background 0.5s ease, transform 0.3s ease;
   background: radial-gradient(
       41.9% 50% at 50% 88.54%,
       #d298ff 0%,
@@ -43,11 +59,19 @@ body {
     ),
     #9216ff;
   border-radius: 80px;
+  position: relative;
+  z-index: 1;
+}
 
-  /* Inside auto layout */
-  flex: none;
-  order: 0;
-  flex-grow: 0;
+.buttonBgTop:hover {
+  /* transform: scale(1.02); */
+  background: radial-gradient(
+      60% 70% at 60% 80%,
+      #e4b0ff 0%,
+      rgba(192, 114, 255, 0.70821) 40%,
+      rgba(146, 22, 255, 0) 100%
+    ),
+    #a23cff;
 }
 
 .violet-glow {
@@ -171,7 +195,7 @@ body {
 .custom-bullet {
   width: 12px;
   height: 12px;
-  background-color: #d6beff; /* White color for inactive bullets */
+  background-color: #D6BEFF29; /* White color for inactive bullets */
   border-radius: 50%;
   margin: 0 5px;
   display: inline-block;

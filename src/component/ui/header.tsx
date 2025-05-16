@@ -39,7 +39,7 @@ const Header = () => {
         <ul className="hidden md:flex  items-center gap-x-5">
           {navLinks.map((item, i) => (
             <li key={i} className="text-[16px] font-medium ">
-              <a className="cursor-pointer">{item.label}</a>
+              <a className="cursor-pointer transition-all ease-in-out duration-300 hover:text-[#a946ff]">{item.label}</a>
             </li>
           ))}
         </ul>
@@ -56,7 +56,7 @@ const Header = () => {
         </div>
         <div
           className={`${
-            isOpen ? "top-0" : "-top-[400px]"
+            isOpen ? "top-0" : "-top-[500px]"
           } absolute  z-50 left-0 bg-[#371e63]/10 pb-[40px] px-[24px] pt-[24px] w-full border rounded-[12px] flex flex-col justify-center transition-all ease-in-out duration-300 items-center border-[#FFFFFF14] backdrop-blur-lg`}
         >
           <div className="w-full flex justify-end">

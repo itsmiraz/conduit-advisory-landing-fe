@@ -100,7 +100,7 @@ const Testimonials = () => {
             bulletClass: "custom-bullet",
             bulletActiveClass: "custom-bullet-active",
           }}
-          centeredSlides
+          // centeredSlides
           spaceBetween={24}
           navigation={{
             nextEl: ".right-arrow",
@@ -123,7 +123,7 @@ const Testimonials = () => {
               <div
                 className={`transition-all border select-none cursor-pointer duration-300 w-full md:w-[380px] mx-auto p-6 rounded-[16px]  
               ${
-                i === activeIndex
+            (    i-1) === activeIndex
                   ? "testimonialCardBg border-[#9216FF] text-[#E2E1E5]"
                   : "bg-[#ffffff0a]  border-[#FFFFFF]/10"
               }`}

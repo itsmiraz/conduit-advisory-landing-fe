@@ -34,7 +34,7 @@ const audiences = [
 ];
 const WhoThisFor = () => {
   return (
-    <div className="py-[31px] px-[20px] mb-[285px]">
+    <div className="py-[31px] px-[20px] mb-[205px]">
       <div className="flex  flex-col justify-start md:justify-center  items-start md:items-center">
         <motion.p
           initial={{ y: -80, opacity: 0 }}

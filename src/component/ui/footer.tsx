@@ -6,20 +6,20 @@ import Facebook from "@/assets/icons/facebook.svg";
 import Twitter from "@/assets/icons/twitter.svg";
 const Footer = () => {
   const footerLinks = {
-    Services: [
-      { label: "Backend Development", link: "#" },
-      { label: "Design", link: "#" },
-      { label: "Dev Ops", link: "#" },
-      { label: "Frontend Development", link: "#" },
-      { label: "Marketing", link: "#" },
-      { label: "Vortexpert's AI & Data Research", link: "#" },
-    ],
+    // Services: [
+    //   { label: "Backend Development", link: "#" },
+    //   { label: "Design", link: "#" },
+    //   { label: "Dev Ops", link: "#" },
+    //   { label: "Frontend Development", link: "#" },
+    //   { label: "Marketing", link: "#" },
+    //   { label: "Vortexpert's AI & Data Research", link: "#" },
+    // ],
 
-    "Useful link": [
-      { label: "Blog", link: "#" },
-      { label: "Expertise", link: "#" },
-      { label: "Our Portfolio", link: "#" },
-    ],
+    // "Useful link": [
+    //   { label: "Blog", link: "#" },
+    //   { label: "Expertise", link: "#" },
+    //   { label: "Our Portfolio", link: "#" },
+    // ],
     Legal: [
       { label: "Privacy Policy", link: "#" },
       { label: "Terms of use", link: "#" },

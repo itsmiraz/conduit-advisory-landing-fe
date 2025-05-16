@@ -14,7 +14,7 @@ const Hero = () => {
           initial={{ y: -80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="uppercase px-[16px] py-[10px] w-fit  font-semibold text-[16px] rounded-[40px] flex items-center gap-x-4 bg-[#D6BEFF]/10"
+          className="uppercase px-[16px] py-[10px] w-fit  font-semibold text-[12px] md:text-[16px] rounded-[40px] flex items-center gap-x-4 bg-[#D6BEFF]/10"
         >
           <BulbIcon /> End-to-End Solutions
         </motion.p>
@@ -37,7 +37,7 @@ const Hero = () => {
           growth partner.
         </motion.p>
         <div className="pt-[40px] flex justify-center gap-4 items-center">
-          <div className="buttonBgBottom w-fit rounded-full p-[1px]">
+          <div className="buttonBgBottom  transition-all duration-500 ease-in-out w-fit rounded-full p-[1px]">
             <button className="flex text-[14px] md:text-[16px]   gap-x-2 font-semibold rounded-full buttonBgTop py-[14px] px-[20px] items-center">
               <AiIcon /> Get Started Today
             </button>
