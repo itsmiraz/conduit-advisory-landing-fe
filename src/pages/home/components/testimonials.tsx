@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import QuoteIcon from "@/assets/icons/quote.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -7,10 +7,10 @@ import "swiper/css/pagination";
 import { useState } from "react";
 import TestimonialImage from "@/assets/images/testimonialImg.png";
 import LeftArrow from "@/assets/icons/leftArrow.svg";
-import IndigoRoundGlow from '@/assets/glows/indigo-round-glow.png'
-import Grid from '@/assets/images/grid.png'
+import IndigoRoundGlow from "@/assets/glows/indigo-round-glow.png";
+import Grid from "@/assets/images/grid.png";
 const testimonials = [
-    {
+  {
     name: "Sophia M",
     img: TestimonialImage,
     role: "Startup Founder",
@@ -59,11 +59,27 @@ const testimonials = [
     text: `Our new site looks incredible and loads lightning fast. Their design instincts are sharp and they took the time to understand our vision.`,
   },
 ];
+
+const useIsDesktop = (breakpoint = 768) => {
+  const [isDesktop, setIsDesktop] = useState(
+    typeof window !== "undefined" ? window.innerWidth >= breakpoint : false
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= breakpoint);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [breakpoint]);
+
+  return isDesktop;
+};
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const ref = useRef(null);
   // const isInView = useInView(ref);
-
+const isDesktop = useIsDesktop(1024); 
   const swiperRef = useRef(null);
 
   const handleLeftClick = () => {
@@ -92,7 +108,7 @@ const Testimonials = () => {
         <div className="h-full md:block hidden bg-gradient-to-r from-[#00000000] to-[#000000] absolute right-0 top-0 w-[400px] z-10"></div>
         <Swiper
           ref={swiperRef}
-          modules={[Pagination, Navigation,Autoplay]}
+          modules={[Pagination, Navigation, Autoplay]}
           // slidesPerView={1.2}
           pagination={{
             el: ".custom-pagination",
@@ -123,7 +139,7 @@ const Testimonials = () => {
               <div
                 className={`transition-all border select-none cursor-pointer duration-300 w-full md:w-[380px] mx-auto p-6 rounded-[16px]  
               ${
-            (    i-1) === activeIndex
+                 (isDesktop ? i - 1 === activeIndex : i === activeIndex)
                   ? "testimonialCardBg border-[#9216FF] text-[#E2E1E5]"
                   : "bg-[#ffffff0a]  border-[#FFFFFF]/10"
               }`}
@@ -159,7 +175,7 @@ const Testimonials = () => {
           </button>
         </div>
       </div>
-        {/* Glowing line  */}
+      {/* Glowing line  */}
       <img
         src={Grid}
         className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
@@ -170,7 +186,6 @@ const Testimonials = () => {
         className="absolute  md:max-w-fit max-w-[1000px] -bottom-[400px] left-1/2 transform -translate-x-1/2"
         alt=""
       />
-
     </div>
   );
 };

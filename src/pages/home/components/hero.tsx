@@ -7,7 +7,7 @@ import AnimatedText from "@/component/ui/animatedText";
 
 const Hero = () => {
   return (
-    <div className="pt-[88px] w-full relative flex justify-center items-center pb-[320px]">
+    <div className="pt-[200px] md:pt-[88px] w-full relative flex justify-center items-center pb-[200px] md:pb-[320px]">
       {/* Main Contents */}
       <div className="flex px-[20px] relative z-30 flex-col justify-center items-center">
         <motion.p
@@ -38,11 +38,11 @@ const Hero = () => {
         </motion.p>
         <div className="pt-[40px] flex justify-center gap-4 items-center">
           <div className="buttonBgBottom  transition-all duration-500 ease-in-out w-fit rounded-full p-[1px]">
-            <button className="flex text-[14px] md:text-[16px]   gap-x-2 font-semibold rounded-full buttonBgTop py-[14px] px-[20px] items-center">
+            <button className="flex whitespace-nowrap text-[12px] md:text-[16px]   gap-x-2 font-semibold rounded-full buttonBgTop py-[14px] px-[20px] items-center">
               <AiIcon /> Get Started Today
             </button>
           </div>
-          <button className="buttonInnerShadow rounded-full py-[16px] px-[28px]  font-semibold hover:bg-[#A13BFF] hover:shadow-inner  transition-all ease-in-out duration-300 text-[14px] md:text-[16px] ">
+          <button className="buttonInnerShadow whitespace-nowrap rounded-full py-[16px] px-[28px]  font-semibold hover:bg-[#A13BFF] hover:shadow-inner  transition-all ease-in-out duration-300 text-[14px] md:text-[16px] ">
             Learn More
           </button>
         </div>
