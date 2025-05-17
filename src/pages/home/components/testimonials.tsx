@@ -94,7 +94,7 @@ const isDesktop = useIsDesktop(1024);
     }
   };
   return (
-    <div className="pb-[137px] md:pb-[200px] overflow-hidden relative">
+    <div className="pb-[100px] md:pb-[200px] overflow-hidden relative">
       <div className="mx-auto  w-fit flex justify-center items-center flex-col text-center">
         <div className="translate-y-8">
           <QuoteIcon />
