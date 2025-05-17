@@ -1,8 +1,8 @@
 import StarIcon from "@/assets/icons/star.svg";
-import SmeIcon from "@/assets/images/sme.png";
-import StartUpIcon from "@/assets/images/startups.png";
-import InovatorIcon from "@/assets/images/innovators.png";
-import CorporateIcon from "@/assets/images/corporates.png";
+import SmeIcon from "@/assets/icons/sme.svg?url";
+import StartUpIcon from "@/assets/icons/startups.svg?url";
+import InovatorIcon from "@/assets/icons/inovation.svg?url";
+import CorporateIcon from "@/assets/icons/corporations.svg?url";
 import backGroundImage from "@/assets/images/whoThisForBg.png";
 import { motion } from "framer-motion";
 
@@ -63,7 +63,9 @@ const WhoThisFor = () => {
               className="px-[40px] flex flex-col justify-center items-center py-[72px]"
               key={i}
             >
-              <img src={item.icon} alt="" />
+              <div>
+                <img src={item.icon} alt="" />
+              </div>
               <h3 className="pt-[16px] text-[16px] pb-[8px] font-instrument font-semibold leading-[27px] text-center">
                 {item.title}
               </h3>
@@ -80,7 +82,9 @@ const WhoThisFor = () => {
               className="px-[16px]  md:px-[40px] flex flex-col justify-center items-center py-[16px]"
               key={i}
             >
-              <img src={item.icon} alt="" />
+              <div>
+                <img src={item.icon} alt="" />
+              </div>
               <h3 className="pt-[16px] text-[16px] pb-[8px] font-instrument font-semibold leading-[27px] text-center">
                 {item.title}
               </h3>
@@ -96,7 +100,10 @@ const WhoThisFor = () => {
               className="px-[16px] md:px-[40px] flex flex-col justify-center items-center py-[16px]"
               key={i}
             >
-              <img src={item.icon} alt="" />
+              <div className="">
+                <img src={item.icon} alt="" />
+                {/* {item.icon} */}
+              </div>
               <h3 className="pt-[16px] text-[16px] pb-[8px] font-instrument font-semibold leading-[27px] text-center">
                 {item.title}
               </h3>

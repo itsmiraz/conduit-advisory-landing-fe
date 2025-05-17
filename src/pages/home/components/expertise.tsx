@@ -73,7 +73,7 @@ const Expertise = () => {
 
       <img
         src={StarGraphic}
-        className="hidden md:absolute -top-20 w-[1310px] left-1/3 "
+        className=" md:block hidden absolute -top-0   right-0 "
         alt=""
       />
 
@@ -88,11 +88,11 @@ const Expertise = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-[14px] md:gap-[40px]">
           {services.map((item, i) => (
             <div
-              className="bg-[#D6BEFF14] rounded-[16px] border-[1px] border-[#FFFFFF14] backdrop-blur-sm p-[12px] md:p-[24px]"
+              className="bg-[#D6BEFF14] rounded-[16px]  border-[1px] border-[#FFFFFF14] backdrop-blur-sm p-[12px] md:p-[24px]"
               key={i}
             >
-              <div>{item.icon}</div>
-              <h3 className="pb-[8px] pt-[16px] font-semibold text-[18px] ">
+              <div className="flex justify-center md:justify-start">{item.icon}</div>
+              <h3 className="pb-[8px] md:text-start text-center pt-[16px] font-semibold text-[18px] ">
                 {item.title}
               </h3>
               <p className="text-[16px]  md:block hidden leading-[24px] text-[#9D9CA3] ">
@@ -101,11 +101,13 @@ const Expertise = () => {
             </div>
           ))}
         </div>
-        <div className="buttonBgBottom mt-[72px] mx-auto w-fit rounded-full p-[1px]">
+       <div className="w-full flex justify-center items-center">
+         <div className="buttonBgBottom  mt-[72px] mx-auto w-fit rounded-full p-[1px]">
           <button className="flex    gap-x-2 font-semibold rounded-full buttonBgTop py-[14px] px-[20px] items-center">
             <AiSparkleIcon /> Book A Discovery
           </button>
         </div>
+       </div>
       </div>
     </div>
   );

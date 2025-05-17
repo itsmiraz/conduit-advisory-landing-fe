@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import logo from "@/assets/images/logo.png";
+import logo from "@/assets/icons/logo.svg?url";
 import { motion } from "framer-motion";
 import Menu from "@/assets/icons/menu.svg";
 import Close from "@/assets/icons/close.svg";
+import SvgLogo from  "@/assets/icons/VorteXpert.svg"
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -44,7 +46,7 @@ const Header = () => {
           ))}
         </ul>
         <div className="flex items-center gap-x-2">
-          <button className="buttonInnerShadow z-40 rounded-[10px] py-[10px] px-[20px] md:px-[28px]  font-semibold text-[12px] md:text-[16px] ">
+          <button className="buttonInnerShadow z-40 rounded-[10px] py-[10px] px-[20px] md:px-[28px]  font-semibold hover:bg-[#A13BFF] hover:shadow-inner   transition-all ease-in-out duration-300  text-[12px] md:text-[16px] ">
             Book A Call
           </button>
           <button

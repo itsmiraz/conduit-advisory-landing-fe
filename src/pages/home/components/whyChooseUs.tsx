@@ -34,12 +34,12 @@ const WhyChooseUs = () => {
   return (
     <div className="pt-[150px] py-[132px] px-[20px] md:px-32 max-w-[1700px] mx-auto">
       <div>
-        <div className="flex justify-between items-end">
+        <div className="flex md:flex-row flex-col  justify-between items-start gap-8 md:items-end">
           <div>
             <p className="uppercase px-[16px] py-[10px] w-fit  font-semibold text-[14px] md:text-[16px] rounded-[40px] flex items-center gap-x-4 bg-[#D6BEFF]/10">
               <StarIcon /> WHY CHOOSE US?
             </p>
-            <h2 className= "text-[28px] md:text-[40px] pt-[18px] font-medium font-instrument">
+            <h2 className= "text-[28px] leading-[120%] md:text-[40px] pt-[18px] font-medium font-instrument">
               Because we're the only agency focused on <br className="md:block hidden" />{" "}
               <span className="text-[#443D52]">alignment</span> — engineered
               through systems,
