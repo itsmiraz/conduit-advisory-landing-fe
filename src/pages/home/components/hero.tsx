@@ -7,7 +7,7 @@ import AnimatedText from "@/component/ui/animatedText";
 
 const Hero = () => {
   return (
-    <div className="pt-[200px] md:pt-[88px] w-full relative flex justify-center items-center pb-[200px] md:pb-[320px]">
+    <div className="pt-[96px] md:pt-[88px] w-full relative flex justify-center items-center pb-[150px] md:pb-[320px]">
       {/* Main Contents */}
       <div className="flex px-[20px] relative z-30 flex-col justify-center items-center">
         <motion.p
@@ -18,18 +18,17 @@ const Hero = () => {
         >
           <BulbIcon /> End-to-End Solutions
         </motion.p>
-        <h1 className="text-[36px] md:text-[72px] py-[12px] text-center font-bold text-white leading-[120%]">
-          <AnimatedText>
+          <AnimatedText className="text-[36px] md:text-[72px] py-[12px] text-center font-bold text-white leading-[120%]">
             <>
-              Build. Launch. Scale. <br />
+              Build. Launch. Scale.
+               <br className="md:block hidden" />
               All in One Place.
             </>
           </AnimatedText>
-        </h1>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 1, ease: "easeOut" }}
           className="text-[16px] md:text-lg leading-[27px] text-center"
         >
           A full-stack approach for every niche, at every stage — delivering

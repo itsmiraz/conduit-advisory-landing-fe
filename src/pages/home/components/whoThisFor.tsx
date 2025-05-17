@@ -5,6 +5,7 @@ import InovatorIcon from "@/assets/icons/inovation.svg?url";
 import CorporateIcon from "@/assets/icons/corporations.svg?url";
 import backGroundImage from "@/assets/images/whoThisForBg.png";
 import { motion } from "framer-motion";
+import AnimatedText from "@/component/ui/animatedText";
 
 const audiences = [
   {
@@ -44,12 +45,15 @@ const WhoThisFor = () => {
         >
           <StarIcon /> WHO IS THIS FOR?
         </motion.p>
-        <h2 className="text-[28px] md:text-[40px] py-[10px] md:text-center font-instrument leading-[120%] text-start font-medium">
-          We work with forward-thinking teams across every{" "}
-          <br className="md:block hidden" /> industry and growth stage — to
-          build, launch, and scale <br className="md:block hidden" />{" "}
-          <span className="text-[#BB7AFF]"> something that matters.</span>
-        </h2>
+        <AnimatedText className="text-[28px] md:text-[40px] py-[10px] md:text-center font-instrument leading-[120%] text-start font-medium">
+          <>
+            We work with forward-thinking teams across every{" "}
+            <br className="md:block hidden" />
+            industry and growth stage — to build, launch, and scale{" "}
+            <br className="md:block hidden" />
+            <span className="text-[#BB7AFF]">something that matters.</span>
+          </>
+        </AnimatedText>
         {/* desktop view */}
         <div
           style={{ backgroundImage: `url(${backGroundImage})` }}

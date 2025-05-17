@@ -4,6 +4,7 @@ import AiIcon from "@/assets/icons/ai.svg";
 import RoiIcon from "@/assets/icons/roi.svg";
 import DataDrivenIcon from "@/assets/icons/dataDriven.svg";
 import EndToEndIcon from "@/assets/icons/endToEnd.svg";
+import AnimatedText from "@/component/ui/animatedText";
 
 const features = [
   {
@@ -39,12 +40,23 @@ const WhyChooseUs = () => {
             <p className="uppercase px-[16px] py-[10px] w-fit  font-semibold text-[14px] md:text-[16px] rounded-[40px] flex items-center gap-x-4 bg-[#D6BEFF]/10">
               <StarIcon /> WHY CHOOSE US?
             </p>
-            <h2 className= "text-[28px] leading-[120%] md:text-[40px] pt-[18px] font-medium font-instrument">
+            {/* <h2 className= "text-[28px] leading-[120%] md:text-[40px] pt-[18px] font-medium font-instrument">
               Because we're the only agency focused on <br className="md:block hidden" />{" "}
               <span className="text-[#443D52]">alignment</span> — engineered
               through systems,
               <br className="md:block hidden" /> powered by technology, and driven by <br className="md:block hidden" /> growth.
-            </h2>
+            </h2> */}
+            <AnimatedText className="text-[28px] leading-[120%] md:text-[40px] pt-[18px] font-medium font-instrument text-start">
+              <>
+                Because we're the only agency focused on{" "}
+                <br className="md:block hidden" />
+                <span className="text-[#443D52]">alignment</span> — engineered
+                through systems,
+                <br className="md:block hidden" />
+                powered by technology, and driven by{" "}
+                <br className="md:block hidden" /> growth.
+              </>
+            </AnimatedText>
           </div>
           <div className="buttonBgBottom md:block hidden w-fit rounded-full p-[1px]">
             <button className="flex    gap-x-2 font-semibold rounded-full buttonBgTop py-[14px] px-[20px] items-center">
@@ -54,9 +66,14 @@ const WhyChooseUs = () => {
         </div>
         <div className="featureCardContainer  flex flex-col md:flex-row gap-10 pt-[34px] ">
           {features.map((item, i) => (
-            <div className="max-w-[380px] cursor-pointer p-[14px] md:p-[24px] featureCardBg rounded-[16px] border-[1px] border-[#FFFFFF14]" key={i}>
+            <div
+              className="max-w-[380px] cursor-pointer p-[14px] md:p-[24px] featureCardBg rounded-[16px] border-[1px] border-[#FFFFFF14]"
+              key={i}
+            >
               <div>{item.icon}</div>
-              <h2 className="text-[24px] leading-[36px] font-medium">{item.title}</h2>
+              <h2 className="text-[24px] leading-[36px] font-medium">
+                {item.title}
+              </h2>
               <h3 className="text-[18px] py-[10px]">{item.subtitle}</h3>
               <p className="pt-[24px] md:pt-[72px] text-[16px] leading-[24px]">
                 {item.description}
