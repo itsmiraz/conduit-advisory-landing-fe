@@ -216,3 +216,20 @@ body {
 .ctaBG {
   background: linear-gradient(180deg, #9216ff 0%, #4a0b81 50%, #290648 100%);
 }
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(214, 190, 255, 0.2), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.service-card:hover::before {
+  opacity: 0.5;
+}

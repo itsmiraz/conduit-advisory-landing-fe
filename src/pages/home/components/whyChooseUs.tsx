@@ -45,7 +45,7 @@ const WhyChooseUs = () => {
         animate={{ y: inView ? 0 : 80, opacity: inView ? 1 : 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="flex md:flex-row flex-col  justify-between items-start gap-8 md:items-end">
+        <div className="flex max-w-[1200px] md:flex-row flex-col  justify-between items-start gap-8 md:items-end">
           <div>
             <p className="uppercase px-[16px] py-[10px] w-fit  font-semibold text-[14px] md:text-[16px] rounded-[40px] flex items-center gap-x-4 bg-[#D6BEFF]/10">
               <StarIcon /> WHY CHOOSE US?

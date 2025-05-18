@@ -52,7 +52,7 @@ const Hero = () => {
               <AiIcon /> Get Started Today
             </button>
           </div>
-          <button className="buttonInnerShadow whitespace-nowrap rounded-full py-[16px] px-[28px]  font-semibold hover:bg-[#A13BFF] hover:shadow-inner  bg-transparent transition-all ease-in-out duration-300 text-[14px] md:text-[16px] ">
+          <button className="buttonInnerShadow whitespace-nowrap rounded-full py-[16px] px-[28px]  font-semibold hover:bg-[#A13BFF]/20 hover:shadow-inner  bg-transparent transition-all ease-in-out duration-300 text-[14px] md:text-[16px] ">
             Learn More
           </button>
         </div>

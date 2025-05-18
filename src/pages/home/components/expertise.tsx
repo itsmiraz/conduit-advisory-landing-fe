@@ -107,7 +107,7 @@ const Expertise = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{ duration: 0.6, delay: i * 0.3, ease: "easeOut" }}
-              className="bg-[#D6BEFF14] rounded-[16px]  border-[1px] border-[#FFFFFF14] backdrop-blur-sm p-[12px] md:p-[24px]"
+              className="bg-[#D6BEFF14] overflow-hidden service-card rounded-[16px]  border-[1px] border-[#FFFFFF14] backdrop-blur-sm p-[12px] md:p-[24px]"
               key={i}
             >
               <div className="flex justify-start">{item.icon}</div>

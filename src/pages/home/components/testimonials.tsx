@@ -11,6 +11,8 @@ import IndigoRoundGlow from "@/assets/glows/indigo-round-glow.png";
 import Grid from "@/assets/images/grid.png";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+
+
 const testimonials = [
   {
     name: "Sophia M",
@@ -112,7 +114,7 @@ const Testimonials = () => {
           Testimonials
         </h2>
       </div>
-      <div className="py-12 relative px-4">
+      <div className="py-12 max-w-[2000px] mx-auto relative px-4">
         <div className="h-full md:block hidden bg-gradient-to-r to-[#00000000] from-[#000000] absolute left-0 top-0 w-[400px] z-10"></div>
         <div className="h-full md:block hidden bg-gradient-to-r from-[#00000000] to-[#000000] absolute right-0 top-0 w-[400px] z-10"></div>
         <Swiper
