@@ -38,10 +38,10 @@ const Cta = () => {
         <div className="hidden md:block absolute top-0 left-0">
           <Line />
         </div>
-        <div className="absolute top-0 left-0">
+        <div className="absolute  md:hidden block top-0 left-0">
           <img src={SmallLineT} alt="" />
         </div>
-        <div className="absolute bottom-0 right-0">
+        <div className="absolute md:hidden block  bottom-0 right-0">
           <img src={SmallLineB} alt="" />
         </div>
       </motion.div>
