@@ -4,7 +4,7 @@ import StartUpIcon from "@/assets/icons/startups.svg?url";
 import InovatorIcon from "@/assets/icons/inovation.svg?url";
 import CorporateIcon from "@/assets/icons/corporations.svg?url";
 import backGroundImage from "@/assets/images/whoThisForBg.png";
-import backGroundSvg from "@/assets/icons/whoThisForBg.svg?url";
+// import backGroundSvg from "@/assets/icons/whoThisForBg.svg?url";
 import { motion } from "framer-motion";
 import AnimatedText from "@/component/ui/animatedText";
 import { useInView } from "react-intersection-observer";
@@ -65,7 +65,7 @@ const WhoThisFor = () => {
         </AnimatedText>
         {/* desktop view */}
         <div
-          style={{ backgroundImage: `url(${backGroundSvg})` }}
+          style={{ backgroundImage: `url(${backGroundImage})` }}
           className="md:h-[590px]  grid-cols-1 md:grid hidden md:grid-cols-2  md:w-[1010px]  bg-no-repeat bg-cover bg-center "
         >
           {audiences.map((item, i) => (
@@ -110,7 +110,7 @@ const WhoThisFor = () => {
             </motion.div>
           ))}
 
-          <img src={backGroundSvg} className="scale-150 " alt="" />
+          <img src={backGroundImage} className="scale-150 " alt="" />
           {audiences.slice(2, 4).map((item, i) => (
             <motion.div
               initial={{ opacity: 0 }}
