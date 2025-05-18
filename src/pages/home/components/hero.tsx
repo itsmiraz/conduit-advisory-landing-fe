@@ -1,7 +1,7 @@
 import BulbIcon from "@/assets/icons/bulb.svg";
 import AiIcon from "@/assets/icons/ai.svg";
-import IndigoGlow from "@/assets/glows/indio-glow.png";
-import VioLetGlow from "@/assets/glows/violet-glow.png";
+import IndigoGlow from "@/assets/glows/indigo-glow.svg?url";
+import VioLetGlow from "@/assets/glows/violet-pill-glow.svg?url";
 import { motion } from "framer-motion";
 import AnimatedText from "@/component/ui/animatedText";
 import { useInView } from "react-intersection-observer";
