@@ -73,7 +73,7 @@ const Footer = () => {
                   <li key={index}>
                     <a
                       href={item.link}
-                      className="text-[14px] md:text-[18px] hover:text-[#a946ff] transition-all ease-in-out duration-300 font-regular hover:underline"
+                      className="text-[14px] md:text-[18px] hover:text-[#a946ff] transition-all ease-in-out duration-300 font-regular "
                     >
                       {item.label}
                     </a>

@@ -1,5 +1,5 @@
 import AiIcon from "@/assets/icons/ai.svg";
-import Line from "@/assets/icons/ctaLines.svg";
+import Line from "@/assets/icons/ctaLines.svg?url";
 import SmallLineB from "@/assets/icons/smallCTAlineB.svg?url";
 import SmallLineT from "@/assets/icons/smallCTAlineT.svg?url";
 import AnimatedText from "@/component/ui/animatedText";
@@ -30,18 +30,19 @@ const Cta = () => {
           ensure alignment from the start. <br className="md:block hidden" />{" "}
           Let us help you maximize every move.
         </p>
-        <div className="buttonBgBottom w-fit rounded-full p-[1px]">
-          <button className="flex gap-x-2 text-[14px] md:text-[16px] font-semibold rounded-full buttonBgTop py-[14px] px-[20px] items-center">
+
+        <div className="absolute   block top-0 left-0">
+          <img className="" src={Line} alt="" />
+        </div>
+        <div className="buttonBgBottom w-fit relative rounded-full z-40 p-[1px]">
+          <button className="flex gap-x-2 z-40 relative text-[14px] md:text-[16px] font-semibold rounded-full buttonBgTop py-[14px] px-[20px] items-center">
             <AiIcon /> Get Started Today
           </button>
         </div>
-        <div className="hidden md:block absolute top-0 left-0">
-          <Line />
+        <div className="absolute -z-50  md:hidden block top-0 left-0">
+          <img className="z-10" src={SmallLineT} alt="" />
         </div>
-        <div className="absolute  md:hidden block top-0 left-0">
-          <img src={SmallLineT} alt="" />
-        </div>
-        <div className="absolute md:hidden block  bottom-0 right-0">
+        <div className="absolute z-10 md:hidden block  bottom-0 right-0">
           <img src={SmallLineB} alt="" />
         </div>
       </motion.div>

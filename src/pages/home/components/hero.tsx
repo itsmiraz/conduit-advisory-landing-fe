@@ -73,10 +73,11 @@ const Hero = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        className=""
         transition={{ duration: 0.5 }}
       >
         <img
-          className="absolute z-10 -bottom-10 -left-72"
+          className="absolute md:h-fit h-[1000px] md:w-fit w-[4000px]  z-10 -bottom-52 md:-bottom-10 -left-40 md:-left-72"
           src={IndigoGlow}
           alt=""
         />

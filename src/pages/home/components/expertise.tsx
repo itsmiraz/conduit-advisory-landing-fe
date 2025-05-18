@@ -91,13 +91,12 @@ const Expertise = () => {
         alt=""
       />
 
-        <motion.div
+      <motion.div
         initial={{ y: 80, opacity: 0 }}
         animate={{ y: inView ? 0 : 80, opacity: inView ? 1 : 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-      
-      
-      className="relative  max-w-[1440px]  z-20">
+        className="relative  max-w-[1440px]  z-20"
+      >
         <h2 className="text-[32px] md:text-[56px] font-semibold pb-[48px] leading-[120%] text-center">
           Our Expertise
         </h2>
