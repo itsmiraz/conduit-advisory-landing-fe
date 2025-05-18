@@ -29,7 +29,7 @@ const Hero = () => {
         >
           <BulbIcon /> End-to-End Solutions
         </motion.p>
-        <AnimatedText className="text-[36px] font-sans md:text-[72px] py-[12px] text-center font-bold text-white leading-[120%]">
+        <AnimatedText className="text-[36px] inter-font font-sans md:text-[72px] py-[12px] text-center font-bold text-white leading-[120%]">
           <>
             Build. Launch. Scale.
             <br className="md:block hidden" />
