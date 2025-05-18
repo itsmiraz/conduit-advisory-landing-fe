@@ -10,7 +10,9 @@ import GlowingLine from "@/assets/images/glowing-line.png";
 import VioletPill from "@/assets/images/violet-pill-glow.png";
 import BottomLine from "@/assets/images/bottomGlowingLine.png";
 import StarGraphic from "@/assets/images/starGraphic.png";
+import { useInView } from "react-intersection-observer";
 
+import { motion } from "framer-motion";
 const services = [
   {
     title: "Research",
@@ -51,15 +53,19 @@ const services = [
 ];
 
 const Expertise = () => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
+
   return (
-    <div className="pt-[48px] md:pt-[120px] flex flex-col justify-center items-center overflow-hidden relative  pb-[53px] mx-auto px-[20px] md:px-20">
+    <div
+      ref={ref}
+      className="pt-[48px] md:pt-[120px] flex flex-col justify-center items-center overflow-hidden relative  pb-[53px] mx-auto px-[20px] md:px-20"
+    >
       {/* Glowing line  */}
       <img
         src={GlowingLine}
         className="absolute -top-0.5 left-1/2 transform -translate-x-1/2"
         alt=""
       />
-     
 
       {/* Glowing Pill */}
 
@@ -79,36 +85,49 @@ const Expertise = () => {
 
       {/* Bottom Graphic */}
 
-      <img src={BottomLine} className="absolute bottom-5 -left-[180px] md:left-0 " alt="" />
+      <img
+        src={BottomLine}
+        className="absolute bottom-5 -left-[180px] md:left-0 "
+        alt=""
+      />
 
-      <div className="relative  max-w-[1440px]  z-20">
+        <motion.div
+        initial={{ y: 80, opacity: 0 }}
+        animate={{ y: inView ? 0 : 80, opacity: inView ? 1 : 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      
+      
+      className="relative  max-w-[1440px]  z-20">
         <h2 className="text-[32px] md:text-[56px] font-semibold pb-[48px] leading-[120%] text-center">
           Our Expertise
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-[14px] md:gap-[40px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[14px] md:gap-[40px]">
           {services.map((item, i) => (
-            <div
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: inView ? 1 : 0 }}
+              transition={{ duration: 0.6, delay: i * 0.3, ease: "easeOut" }}
               className="bg-[#D6BEFF14] rounded-[16px]  border-[1px] border-[#FFFFFF14] backdrop-blur-sm p-[12px] md:p-[24px]"
               key={i}
             >
-              <div className="flex justify-center md:justify-start">{item.icon}</div>
-              <h3 className="pb-[8px] md:text-start text-center pt-[16px] font-semibold text-[18px] ">
+              <div className="flex justify-start">{item.icon}</div>
+              <h3 className="pb-[8px] text-start pt-[16px] font-semibold text-[18px] ">
                 {item.title}
               </h3>
-              <p className="text-[16px]  md:block hidden leading-[24px] text-[#9D9CA3] ">
+              <p className="text-[16px]   leading-[24px] text-[#9D9CA3] ">
                 {item.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
-       <div className="w-full flex justify-center items-center">
-         <div className="buttonBgBottom  mt-[72px] mx-auto w-fit rounded-full p-[1px]">
-          <button className="flex    gap-x-2 font-semibold rounded-full buttonBgTop py-[14px] px-[20px] items-center">
-            <AiSparkleIcon /> Book A Discovery
-          </button>
+        <div className="w-full flex justify-center items-center">
+          <div className="buttonBgBottom  mt-[72px] mx-auto w-fit rounded-full p-[1px]">
+            <button className="flex    gap-x-2 font-semibold rounded-full buttonBgTop py-[14px] px-[20px] items-center">
+              <AiSparkleIcon /> Book A Discovery
+            </button>
+          </div>
         </div>
-       </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

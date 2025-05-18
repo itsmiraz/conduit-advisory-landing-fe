@@ -5,6 +5,8 @@ import RoiIcon from "@/assets/icons/roi.svg";
 import DataDrivenIcon from "@/assets/icons/dataDriven.svg";
 import EndToEndIcon from "@/assets/icons/endToEnd.svg";
 import AnimatedText from "@/component/ui/animatedText";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const features = [
   {
@@ -32,20 +34,23 @@ const features = [
   },
 ];
 const WhyChooseUs = () => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
   return (
-    <div className="pt-[150px] py-[132px] px-[20px] md:px-32 max-w-[1700px] mx-auto">
-      <div>
+    <div
+      ref={ref}
+      className="pt-[150px] py-[132px] px-[20px] md:px-32 max-w-[1700px] mx-auto"
+    >
+      <motion.div
+        initial={{ y: 80, opacity: 0 }}
+        animate={{ y: inView ? 0 : 80, opacity: inView ? 1 : 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <div className="flex md:flex-row flex-col  justify-between items-start gap-8 md:items-end">
           <div>
             <p className="uppercase px-[16px] py-[10px] w-fit  font-semibold text-[14px] md:text-[16px] rounded-[40px] flex items-center gap-x-4 bg-[#D6BEFF]/10">
               <StarIcon /> WHY CHOOSE US?
             </p>
-            {/* <h2 className= "text-[28px] leading-[120%] md:text-[40px] pt-[18px] font-medium font-instrument">
-              Because we're the only agency focused on <br className="md:block hidden" />{" "}
-              <span className="text-[#443D52]">alignment</span> — engineered
-              through systems,
-              <br className="md:block hidden" /> powered by technology, and driven by <br className="md:block hidden" /> growth.
-            </h2> */}
+
             <AnimatedText className="text-[28px] leading-[120%] md:text-[40px] pt-[18px] font-medium font-instrument text-start">
               <>
                 Because we're the only agency focused on{" "}
@@ -66,7 +71,10 @@ const WhyChooseUs = () => {
         </div>
         <div className="featureCardContainer  flex flex-col md:flex-row gap-10 pt-[34px] ">
           {features.map((item, i) => (
-            <div
+            <motion.div
+              initial={{ y: 80, opacity: 0 }}
+              animate={{ y: inView ? 0 : 80, opacity: inView ? 1 : 0 }}
+              transition={{ duration: 0.6, delay: i * 0.3, ease: "easeOut" }}
               className="max-w-[380px] cursor-pointer p-[14px] md:p-[24px] featureCardBg rounded-[16px] border-[1px] border-[#FFFFFF14]"
               key={i}
             >
@@ -78,10 +86,10 @@ const WhyChooseUs = () => {
               <p className="pt-[24px] md:pt-[72px] text-[16px] leading-[24px]">
                 {item.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

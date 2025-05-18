@@ -9,6 +9,8 @@ import TestimonialImage from "@/assets/images/testimonialImg.png";
 import LeftArrow from "@/assets/icons/leftArrow.svg";
 import IndigoRoundGlow from "@/assets/glows/indigo-round-glow.png";
 import Grid from "@/assets/images/grid.png";
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 const testimonials = [
   {
     name: "Sophia M",
@@ -77,9 +79,10 @@ const useIsDesktop = (breakpoint = 768) => {
   return isDesktop;
 };
 const Testimonials = () => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
   const [activeIndex, setActiveIndex] = useState(0);
   // const isInView = useInView(ref);
-const isDesktop = useIsDesktop(1024); 
+  const isDesktop = useIsDesktop(1024);
   const swiperRef = useRef(null);
 
   const handleLeftClick = () => {
@@ -94,7 +97,13 @@ const isDesktop = useIsDesktop(1024);
     }
   };
   return (
-    <div className="pb-[100px] md:pb-[200px] overflow-hidden relative">
+    <motion.div
+      initial={{ y: 80, opacity: 0 }}
+      animate={{ y: inView ? 0 : 80, opacity: inView ? 1 : 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      ref={ref}
+      className="pb-[100px] md:pb-[200px] overflow-hidden relative"
+    >
       <div className="mx-auto  w-fit flex justify-center items-center flex-col text-center">
         <div className="translate-y-8">
           <QuoteIcon />
@@ -139,7 +148,7 @@ const isDesktop = useIsDesktop(1024);
               <div
                 className={`transition-all border select-none cursor-pointer duration-300 w-full md:w-[380px] mx-auto p-6 rounded-[16px]  
               ${
-                 (isDesktop ? i - 1 === activeIndex : i === activeIndex)
+                (isDesktop ? i - 1 === activeIndex : i === activeIndex)
                   ? "testimonialCardBg border-[#9216FF] text-[#E2E1E5]"
                   : "bg-[#ffffff0a]  border-[#FFFFFF]/10"
               }`}
@@ -186,7 +195,7 @@ const isDesktop = useIsDesktop(1024);
         className="absolute  md:max-w-fit max-w-[1000px] -bottom-[400px] left-1/2 transform -translate-x-1/2"
         alt=""
       />
-    </div>
+    </motion.div>
   );
 };
 

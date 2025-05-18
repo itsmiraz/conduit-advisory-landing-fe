@@ -40,7 +40,7 @@ const AnimatedText = ({
             className="inline-block overflow-hidden align-bottom"
           >
             <motion.span
-              className="inline-block pr-1 md:pr-2"
+              className="inline-block "
               variants={pullupVariant}
               initial="initial"
               animate={inView ? "animate" : "initial"}

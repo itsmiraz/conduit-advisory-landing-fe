@@ -4,12 +4,23 @@ import IndigoGlow from "@/assets/glows/indio-glow.png";
 import VioLetGlow from "@/assets/glows/violet-glow.png";
 import { motion } from "framer-motion";
 import AnimatedText from "@/component/ui/animatedText";
+import { useInView } from "react-intersection-observer";
 
 const Hero = () => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
+
   return (
-    <div className="pt-[96px] md:pt-[88px] w-full relative flex justify-center items-center pb-[150px] md:pb-[320px]">
+    <div
+      ref={ref}
+      className="pt-[96px] md:pt-[88px] w-full relative flex justify-center items-center pb-[150px] md:pb-[320px]"
+    >
       {/* Main Contents */}
-      <div className="flex px-[20px] relative z-30 flex-col justify-center items-center">
+      <motion.div
+        initial={{ y: 80, opacity: 0 }}
+        animate={{ y: inView ? 0 : 80, opacity: inView ? 1 : 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="flex px-[20px] relative z-30 flex-col justify-center items-center"
+      >
         <motion.p
           initial={{ y: -80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -18,13 +29,13 @@ const Hero = () => {
         >
           <BulbIcon /> End-to-End Solutions
         </motion.p>
-          <AnimatedText className="text-[36px] md:text-[72px] py-[12px] text-center font-bold text-white leading-[120%]">
-            <>
-              Build. Launch. Scale.
-               <br className="md:block hidden" />
-              All in One Place.
-            </>
-          </AnimatedText>
+        <AnimatedText className="text-[36px] font-sans md:text-[72px] py-[12px] text-center font-bold text-white leading-[120%]">
+          <>
+            Build. Launch. Scale.
+            <br className="md:block hidden" />
+            All in One Place.
+          </>
+        </AnimatedText>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -32,8 +43,8 @@ const Hero = () => {
           className="text-[16px] md:text-lg leading-[27px] text-center"
         >
           A full-stack approach for every niche, at every stage — delivering
-          strategic, scalable, and <br className="md:block hidden" /> revenue-driven digital innovation as a
-          growth partner.
+          strategic, scalable, and <br className="md:block hidden" />{" "}
+          revenue-driven digital innovation as a growth partner.
         </motion.p>
         <div className="pt-[40px] flex justify-center gap-4 items-center">
           <div className="buttonBgBottom  transition-all duration-500 ease-in-out w-fit rounded-full p-[1px]">
@@ -45,7 +56,7 @@ const Hero = () => {
             Learn More
           </button>
         </div>
-      </div>
+      </motion.div>
       {/* Background Glows */}
       <motion.div
         initial={{ opacity: 0 }}

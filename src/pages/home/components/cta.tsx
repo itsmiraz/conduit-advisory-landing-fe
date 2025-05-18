@@ -3,11 +3,20 @@ import Line from "@/assets/icons/ctaLines.svg";
 import SmallLineB from "@/assets/icons/smallCTAlineB.svg?url";
 import SmallLineT from "@/assets/icons/smallCTAlineT.svg?url";
 import AnimatedText from "@/component/ui/animatedText";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Cta = () => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
+
   return (
-    <div className="py-[100px] px-[20px] ">
-      <div className="max-w-[1220px] px-[12px] md:px-[16px] relative mx-auto py-[80px] flex flex-col justify-center items-center  ctaBG rounded-[24px] ">
+    <div ref={ref} className="py-[100px] px-[20px] ">
+      <motion.div
+        initial={{ y: 80, opacity: 0 }}
+        animate={{ y: inView ? 0 : 80, opacity: inView ? 1 : 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="max-w-[1220px] px-[12px] md:px-[16px] relative mx-auto py-[80px] flex flex-col justify-center items-center  ctaBG rounded-[24px] "
+      >
         <AnimatedText className="text-[38px] md:text-[56px] font-semibold text-center leading-[120%]">
           <>
             Ready to grow? <br className="md:block hidden" />
@@ -35,7 +44,7 @@ const Cta = () => {
         <div className="absolute bottom-0 right-0">
           <img src={SmallLineB} alt="" />
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

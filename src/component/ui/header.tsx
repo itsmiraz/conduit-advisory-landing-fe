@@ -29,10 +29,8 @@ const Header = () => {
 
   return (
     <div className="px-[20px]">
-      <motion.div
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+      <div
+     
         className="max-w-[1220px] mt-[24px] z-40 md:mt-[32px] mx-auto bg-[#D6BEFF14] rounded-[12px] border-[1px] border-[#FFFFFF14] p-[6px] md:p-[10px] font-sans flex justify-between relative items-center"
       >
         <div className="pl-2">
@@ -83,7 +81,7 @@ const Header = () => {
             Book A Call
           </button>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

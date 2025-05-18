@@ -6,6 +6,7 @@ import CorporateIcon from "@/assets/icons/corporations.svg?url";
 import backGroundImage from "@/assets/images/whoThisForBg.png";
 import { motion } from "framer-motion";
 import AnimatedText from "@/component/ui/animatedText";
+import { useInView } from "react-intersection-observer";
 
 const audiences = [
   {
@@ -34,9 +35,16 @@ const audiences = [
   },
 ];
 const WhoThisFor = () => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
+
   return (
-    <div className="py-[31px] px-[20px] mb-[150px] md:mb-[205px]">
-      <div className="flex  flex-col justify-start md:justify-center  items-start md:items-center">
+    <div ref={ref} className="py-[31px] px-[20px] mb-[150px] md:mb-[205px]">
+      <motion.div
+        initial={{ y: 80, opacity: 0 }}
+        animate={{ y: inView ? 0 : 80, opacity: inView ? 1 : 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="flex  flex-col justify-start md:justify-center  items-start md:items-center"
+      >
         <motion.p
           initial={{ y: -80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -62,7 +70,7 @@ const WhoThisFor = () => {
           {audiences.map((item, i) => (
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              animate={{ opacity: inView ? 1 : 0 }}
               transition={{ duration: 0.6, delay: i * 0.3, ease: "easeOut" }}
               className="px-[40px] flex flex-col justify-center items-center py-[72px]"
               key={i}
@@ -117,7 +125,7 @@ const WhoThisFor = () => {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
