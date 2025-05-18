@@ -89,7 +89,7 @@ const WhoThisFor = () => {
           ))}
         </div>
         {/* mobile view */}
-        <div className=" relative md:hidden block  ">
+        <div className=" relative  md:hidden block  ">
           {audiences.slice(0, 2).map((item, i) => (
             <motion.div
               initial={{ opacity: 0 }}
@@ -98,7 +98,7 @@ const WhoThisFor = () => {
               className="px-[16px]  md:px-[40px] flex flex-col justify-center items-center py-[16px]"
               key={i}
             >
-              <div>
+              <div className="relative z-20">
                 <img src={item.icon} alt="" />
               </div>
               <h3 className="pt-[16px] text-[16px] pb-[8px] font-instrument font-semibold leading-[27px] text-center">
@@ -119,7 +119,7 @@ const WhoThisFor = () => {
               className="px-[16px] md:px-[40px] flex flex-col justify-center items-center py-[16px]"
               key={i}
             >
-              <div className="">
+              <div className="relative z-20">
                 <img src={item.icon} alt="" />
                 {/* {item.icon} */}
               </div>
