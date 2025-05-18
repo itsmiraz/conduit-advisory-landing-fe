@@ -67,7 +67,7 @@ const Footer = () => {
         <div className=" flex mt-[24px] md:mt-0 flex-wrap gap-14">
           {Object.entries(footerLinks).map(([category, links]) => (
             <div className="">
-              <h3 className="text-[12px] md:text-start text-center font-bold md:text-[16px] pb-[12px]">{category}</h3>
+              <h3 className="text-[12px] md:block hidden md:text-start text-center font-bold md:text-[16px] pb-[12px]">{category}</h3>
               <ul className="md:space-y-[14px] gap-x-4 md:gap-x-0 md:flex-col flex flex-row">
                 {links.map((item, index) => (
                   <li key={index}>

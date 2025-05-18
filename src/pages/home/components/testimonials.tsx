@@ -121,6 +121,7 @@ const Testimonials = () => {
           ref={swiperRef}
           modules={[Pagination, Navigation, Autoplay]}
           // slidesPerView={1.2}
+          loop={true}
           pagination={{
             el: ".custom-pagination",
             clickable: true,
@@ -135,8 +136,7 @@ const Testimonials = () => {
           }}
           // loop={true}
           autoplay={{
-            delay: 2000, // 5000ms = 5 seconds
-            // disableOnInteraction: false, // keeps autoplay running after manual swipe
+            delay: 2000, 
           }}
           onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           breakpoints={{
