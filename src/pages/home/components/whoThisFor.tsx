@@ -91,7 +91,10 @@ const WhoThisFor = () => {
         {/* mobile view */}
         <div className=" relative md:hidden block  ">
           {audiences.slice(0, 2).map((item, i) => (
-            <div
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: inView ? 1 : 0 }}
+              transition={{ duration: 0.6, delay: i * 0.3, ease: "easeOut" }}
               className="px-[16px]  md:px-[40px] flex flex-col justify-center items-center py-[16px]"
               key={i}
             >
@@ -104,12 +107,15 @@ const WhoThisFor = () => {
               <p className="text-[#E2E1E5] text-[14px] md:text-[16px] leading-[24px] font-instrument text-center">
                 {item.description}
               </p>
-            </div>
+            </motion.div>
           ))}
 
           <img src={backGroundSvg} className="scale-150 " alt="" />
           {audiences.slice(2, 4).map((item, i) => (
-            <div
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: inView ? 1 : 0 }}
+              transition={{ duration: 0.6, delay: i * 0.5, ease: "easeOut" }}
               className="px-[16px] md:px-[40px] flex flex-col justify-center items-center py-[16px]"
               key={i}
             >
@@ -123,7 +129,7 @@ const WhoThisFor = () => {
               <p className="text-[#E2E1E5] text-[14px] md:text-[16px] leading-[24px] font-instrument text-center">
                 {item.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </motion.div>

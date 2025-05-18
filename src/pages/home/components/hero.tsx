@@ -25,7 +25,7 @@ const Hero = () => {
           initial={{ y: -80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="uppercase px-[16px] py-[10px] w-fit  font-semibold text-[12px] md:text-[16px] rounded-[40px] flex items-center gap-x-4 bg-[#D6BEFF]/10"
+          className="uppercase px-[16px] py-[10px] w-fit  font-semibold text-[12px] md:text-[16px] rounded-[40px] flex items-center leading-[90%] gap-x-2 md:gap-x-4 bg-[#D6BEFF]/10"
         >
           <BulbIcon /> End-to-End Solutions
         </motion.p>
