@@ -1,10 +1,12 @@
+
+
+
 import StarIcon from "@/assets/icons/star.svg";
 import SmeIcon from "@/assets/icons/sme.svg?url";
 import StartUpIcon from "@/assets/icons/startups.svg?url";
 import InovatorIcon from "@/assets/icons/inovation.svg?url";
 import CorporateIcon from "@/assets/icons/corporations.svg?url";
 import backGroundImage from "@/assets/images/whoThisForBg.png";
-// import backGroundSvg from "@/assets/icons/whoThisForBg.svg?url";
 import { motion } from "framer-motion";
 import AnimatedText from "@/component/ui/animatedText";
 import { useInView } from "react-intersection-observer";
@@ -98,6 +100,7 @@ const WhoThisFor = () => {
               className="px-[16px]  md:px-[40px] flex flex-col justify-center items-center py-[16px]"
               key={i}
             >
+              {/* <StartUpsIcon/> */}
               <div className="w-[52px]">
                 <img style={{ width: "100%" }} src={item.icon} alt="" />
               </div>
@@ -110,7 +113,7 @@ const WhoThisFor = () => {
             </motion.div>
           ))}
 
-          <img src={backGroundImage} className="scale-150 " alt="" />
+          <img src={backGroundImage} className="scale-150  z-10" alt="" />
           {audiences.slice(2, 4).map((item, i) => (
             <motion.div
               initial={{ opacity: 0 }}
@@ -119,7 +122,7 @@ const WhoThisFor = () => {
               className="px-[16px] md:px-[40px] flex flex-col justify-center items-center py-[16px]"
               key={i}
             >
-              <div className="w-[52px]">
+              <div className="w-[52px] z-40 rel">
                 <img style={{ width: "100%" }} src={item.icon} alt="" />
               </div>
               <h3 className="pt-[16px] text-[16px] pb-[8px] font-instrument font-semibold leading-[27px] text-center">

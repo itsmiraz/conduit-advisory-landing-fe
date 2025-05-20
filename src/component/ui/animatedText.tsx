@@ -1,6 +1,8 @@
 import { motion, Variants } from "framer-motion";
 import { ReactElement, ReactNode, isValidElement } from "react";
 import { useInView } from "react-intersection-observer";
+
+
 type ElementWithChildrenAndClass = ReactElement<{
   className?: string;
   children?: React.ReactNode;
