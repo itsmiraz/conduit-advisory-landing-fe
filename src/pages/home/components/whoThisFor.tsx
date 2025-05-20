@@ -76,8 +76,8 @@ const WhoThisFor = () => {
               className="px-[40px] flex flex-col justify-center items-center py-[72px]"
               key={i}
             >
-              <div>
-                <img src={item.icon} alt="" />
+              <div className="w-[52px]">
+                <img style={{ width: "100%" }} src={item.icon} alt="" />
               </div>
               <h3 className="pt-[16px] text-[16px] pb-[8px] font-instrument font-semibold leading-[27px] text-center">
                 {item.title}
@@ -98,8 +98,8 @@ const WhoThisFor = () => {
               className="px-[16px]  md:px-[40px] flex flex-col justify-center items-center py-[16px]"
               key={i}
             >
-              <div className="relative z-20">
-                <img src={item.icon} alt="" />
+              <div className="w-[52px]">
+                <img style={{ width: "100%" }} src={item.icon} alt="" />
               </div>
               <h3 className="pt-[16px] text-[16px] pb-[8px] font-instrument font-semibold leading-[27px] text-center">
                 {item.title}
@@ -119,9 +119,8 @@ const WhoThisFor = () => {
               className="px-[16px] md:px-[40px] flex flex-col justify-center items-center py-[16px]"
               key={i}
             >
-              <div className="relative z-20">
-                <img src={item.icon} alt="" />
-                {/* {item.icon} */}
+              <div className="w-[52px]">
+                <img style={{ width: "100%" }} src={item.icon} alt="" />
               </div>
               <h3 className="pt-[16px] text-[16px] pb-[8px] font-instrument font-semibold leading-[27px] text-center">
                 {item.title}
