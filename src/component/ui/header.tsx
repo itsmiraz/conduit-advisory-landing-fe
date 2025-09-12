@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import logo from "@/assets/icons/logo.svg?url";
+import logo from "@/assets/images/logo.webp";
 import { motion } from "framer-motion";
-import Menu from "@/assets/icons/menu.svg";
-import Close from "@/assets/icons/close.svg";
-import SvgLogo from  "@/assets/icons/VorteXpert.svg"
+import Menu from "@/assets/icons/Menu.svg";
+import Close from "@/assets/icons/Close.svg";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,42 +10,38 @@ const Header = () => {
   const navLinks = [
     {
       link: "/",
-      label: "Who Is This For?",
+      label: "About Us",
     },
     {
       link: "/",
-      label: "Our Expertise",
+      label: "Our Team",
     },
     {
       link: "/",
-      label: "Why Choose Us?",
+      label: "Services",
     },
     {
       link: "/",
-      label: "Case Studies",
+      label: "Contact Us",
     },
   ];
 
   return (
-    <div className="px-[20px]">
-      <div
-     
-        className="max-w-[1220px] mt-[24px] z-40 md:mt-[32px] mx-auto bg-[#D6BEFF14] rounded-[12px] border-[1px] border-[#FFFFFF14] p-[6px] md:p-[10px] font-sans flex justify-between relative items-center"
-      >
+    <div className="px-[20px]  ">
+      <div className="max-w-[1441px]  z-40 mx-auto  p-[6px] font-sans flex justify-between relative items-center">
         <div className="pl-2">
           <img src={logo} className="md:w-fit w-[119px]" alt="" />
         </div>
         <ul className="hidden md:flex  items-center gap-x-5">
           {navLinks.map((item, i) => (
-            <li key={i} className="text-[16px] font-medium ">
-              <a className="cursor-pointer transition-all ease-in-out duration-300 hover:text-[#a946ff]">{item.label}</a>
+            <li key={i} className="text-[20px] font-regular ">
+              <a className="cursor-pointer transition-all ease-in-out duration-300 ">
+                {item.label}
+              </a>
             </li>
           ))}
         </ul>
-        <div className="flex items-center gap-x-2">
-          <button className="buttonInnerShadow z-40 rounded-[10px] py-[10px] px-[20px] md:px-[28px]  font-semibold hover:bg-[#A13BFF] hover:shadow-inner   transition-all ease-in-out duration-300  text-[12px] md:text-[16px] ">
-            Book A Call
-          </button>
+        <div className="flex md:hidden items-center gap-x-2">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="block md:hidden"
@@ -77,9 +72,6 @@ const Header = () => {
               </li>
             ))}
           </ul>
-          <button className="buttonInnerShadow z-40 mt-[24px] rounded-[10px] py-[10px] px-[20px] md:px-[28px]  font-semibold text-[12px] md:text-[16px] ">
-            Book A Call
-          </button>
         </div>
       </div>
     </div>
