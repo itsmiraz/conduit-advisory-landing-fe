@@ -27,3 +27,14 @@ body {
     #f7f7f7 86.17%
   );
 }
+
+.stat_bg {
+  background: linear-gradient(0deg, #d7d9db, #d7d9db),
+    linear-gradient(
+      284.41deg,
+      rgba(247, 247, 247, 0) -22.95%,
+      rgba(247, 247, 247, 0.28525) -7.79%,
+      rgba(247, 247, 247, 0.81881) 53.78%,
+      #f7f7f7 87.43%
+    );
+}
