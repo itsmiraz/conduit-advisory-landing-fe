@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "@/assets/images/logo.webp";
+import Logo from "@/assets/images/logo.svg";
 import { motion } from "framer-motion";
 import Menu from "@/assets/icons/Menu.svg";
 import Close from "@/assets/icons/Close.svg";
@@ -30,7 +30,8 @@ const Header = () => {
     <div className="px-[20px]  ">
       <div className="max-w-[1441px]  z-40 mx-auto  p-[6px] font-sans flex justify-between relative items-center">
         <div className="pl-2">
-          <img src={logo} className="md:w-fit w-[119px]" alt="" />
+          {/* <img src={logo} className="md:w-fit w-[119px]" alt="" /> */}
+          <Logo />
         </div>
         <ul className="hidden md:flex  items-center gap-x-5">
           {navLinks.map((item, i) => (
@@ -63,7 +64,8 @@ const Header = () => {
             </button>
           </div>
           <div className="pt-[24px]">
-            <img src={logo} className="w-[176px]" alt="" />
+            {/* <img src={logo} className="w-[176px]" alt="" /> */}
+            <Logo />
           </div>
           <ul className="flex pt-[24px] flex-col  items-center gap-5">
             {navLinks.map((item, i) => (

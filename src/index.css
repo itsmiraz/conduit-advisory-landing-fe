@@ -38,3 +38,7 @@ body {
       #f7f7f7 87.43%
     );
 }
+
+.footerDropShadow {
+  box-shadow: 0px -4px 15.5px 0px rgba(0, 0, 0, 0.07);
+}

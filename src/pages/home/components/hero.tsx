@@ -1,4 +1,4 @@
-import HeroImg from "@/assets/images/hero.webp";
+import HeroImg from "@/assets/images/hero_flat.svg?url";
 import LeftArrow from "@/assets/icons/LeftArrow.svg";
 
 const Hero = () => {
@@ -24,8 +24,8 @@ const Hero = () => {
           </button>
         </div>
 
-        <div>
-          <img src={HeroImg} alt="" />
+        <div className="max-w-[600px]">
+          <img src={HeroImg} className="w-[550px]" alt="" />
         </div>
       </div>
     </div>
