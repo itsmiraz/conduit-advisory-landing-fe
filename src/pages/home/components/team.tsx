@@ -2,7 +2,7 @@ import Soumik from "@/assets/images/soumik.webp";
 import Thomas from "@/assets/images/thomas.webp";
 import Devin from "@/assets/images/devin.webp";
 
-const OurTeam = () => {
+const Team = () => {
   const data = [
     {
       id: "thomas-gaffney",
@@ -78,4 +78,4 @@ const OurTeam = () => {
   );
 };
 
-export default OurTeam;
+export default Team;
