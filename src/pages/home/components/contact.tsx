@@ -1,10 +1,10 @@
 import React, { useState, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import ContactImg from "@/assets/images/cta.webp";
 import ContactImgSVG from "@/assets/images/Book_a_call.svg?url";
 import LeftArrow from "@/assets/icons/LeftArrow.svg";
 
-// Read from env (Vite-style). Fallback to empty strings so we can surface a friendly error if missing.
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
@@ -25,6 +25,18 @@ const initialValues: FormValues = {
   message: "",
 };
 
+const fadeIn = (dir: "left" | "right" | "up" | "down" = "up", delay = 0) => {
+  const delta =
+    dir === "left" ? -24 : dir === "right" ? 24 : dir === "up" ? 24 : -24;
+  const axis = dir === "left" || dir === "right" ? { x: delta } : { y: delta };
+  return {
+    initial: { opacity: 0, ...axis },
+    whileInView: { opacity: 1, x: 0, y: 0 },
+    viewport: { once: true, amount: 0.3 },
+    transition: { duration: 0.6, ease: "easeOut", delay },
+  };
+};
+
 const Contact: React.FC = () => {
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<
@@ -34,38 +46,31 @@ const Contact: React.FC = () => {
   const [statusMsg, setStatusMsg] = useState<{
     type: "success" | "error" | null;
     text: string;
-  }>({
-    type: null,
-    text: "",
-  });
+  }>({ type: null, text: "" });
 
   const emailRegex = useMemo(
-    () =>
-      // Basic RFC2822-ish check
-      /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+    () => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
     []
   );
   const phoneRegex = useMemo(() => /^[+()\-\s\d]{6,20}$/g, []);
 
   function validate(v: FormValues) {
     const e: Partial<Record<keyof FormValues, string>> = {};
-
     if (!v.firstName.trim()) e.firstName = "First name is required.";
     else if (v.firstName.trim().length < 2)
       e.firstName = "First name must be at least 2 characters.";
-
     if (!v.lastName.trim()) e.lastName = "Last name is required.";
     else if (v.lastName.trim().length < 2)
       e.lastName = "Last name must be at least 2 characters.";
-
     if (!v.email.trim()) e.email = "Email is required.";
     else if (!emailRegex.test(v.email))
       e.email = "Enter a valid email address.";
-
     if (!v.message.trim()) e.message = "Please write a message.";
     else if (v.message.trim().length < 10)
       e.message = "Message must be at least 10 characters.";
-
+    // optional phone (validate only if provided)
+    if (v.phone && !phoneRegex.test(v.phone))
+      e.phone = "Enter a valid phone number.";
     return e;
   }
 
@@ -74,7 +79,6 @@ const Contact: React.FC = () => {
       const value = e.target.value;
       setValues((prev) => ({ ...prev, [key]: value }));
       if (errors[key]) {
-        // re-validate just this field quickly
         const next = { ...errors };
         delete next[key];
         setErrors(next);
@@ -86,12 +90,10 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setStatusMsg({ type: null, text: "" });
 
-    // Validate local fields first
     const vErrors = validate(values);
     setErrors(vErrors);
     if (Object.keys(vErrors).length > 0) return;
 
-    // Validate EmailJS setup
     if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
       setStatusMsg({
         type: "error",
@@ -102,7 +104,6 @@ const Contact: React.FC = () => {
 
     setIsSubmitting(true);
     try {
-      // These keys should match your EmailJS template's variables
       const templateParams = {
         name: `${values.firstName} ${values.lastName}`,
         email: values.email,
@@ -138,10 +139,17 @@ const Contact: React.FC = () => {
   }
 
   return (
-    <div className="py-[140px] px-4 md:px-10 flex md:flex-row flex-col items-center justify-center gap-y-10 gap-x-8">
-      <div className="bg-[#F7F7F7] w-full md:w-[724px] rounded-[20px] py-[30px] px-4 md:px-[40px] gap-x-[23px]">
+    <div
+      id="contact"
+      className="py-[140px] px-4 md:px-10 flex md:flex-row flex-col items-center justify-center gap-y-10 gap-x-8"
+    >
+      {/* Left panel */}
+      <motion.div
+        className="bg-[#F7F7F7] w-full md:w-[724px] rounded-[20px] py-[30px] px-4 md:px-[40px] gap-x-[23px]"
+        {...fadeIn("left", 0)}
+      >
         <div>
-          <img className="md:px-24 " src={ContactImgSVG} alt="Book a call" />
+          <img className="md:px-24" src={ContactImgSVG} alt="Book a call" />
         </div>
         <h2 className="text-desc mt-4 md:mt-0 font-bold text-[20px] md:text-[36px]">
           Ready to Start?
@@ -151,16 +159,22 @@ const Contact: React.FC = () => {
           financing, and advisory solutions across the Web3 and capital markets
           landscape.
         </p>
-        <button
+        <motion.button
           type="button"
-          className="bg-[#B7995B]  md:w-fit rounded-[12px] justify-between w-full text-[16px] md:text-xl font-semibold flex gap-x-3 px-[14px] md:px-[26px] py-[10px] md:py-[14px] text-white"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.98 }}
+          className="bg-[#B7995B] md:w-fit rounded-[12px] justify-between w-full text-[16px] md:text-xl font-semibold flex gap-x-3 px-[14px] md:px-[26px] py-[10px] md:py-[14px] text-white"
         >
           Arrange a Strategy Session
           <LeftArrow />
-        </button>
-      </div>
+        </motion.button>
+      </motion.div>
 
-      <div className="bg-[#F7F7F7] w-full md:w-[538px] rounded-[20px]  py-[30px] px-[16px] md:px-[40px] gap-x-[23px]">
+      {/* Right panel (form) */}
+      <motion.div
+        className="bg-[#F7F7F7] w-full md:w-[538px] rounded-[20px] py-[30px] px-[16px] md:px-[40px] gap-x-[23px]"
+        {...fadeIn("right", 0.1)}
+      >
         <h2 className="text-desc font-bold text-[28px] md:text-[36px]">
           Send Message
         </h2>
@@ -169,20 +183,26 @@ const Contact: React.FC = () => {
           advisory. Work with us
         </p>
 
-        {/* Global status banner */}
-        {statusMsg.type && (
-          <div
-            role="status"
-            className={
-              "mb-4 rounded-[12px] px-4 py-3 text-sm md:text-base " +
-              (statusMsg.type === "success"
-                ? "bg-green-50 text-green-700 border border-green-200"
-                : "bg-red-50 text-red-700 border border-red-200")
-            }
-          >
-            {statusMsg.text}
-          </div>
-        )}
+        {/* Animated status banner */}
+        <AnimatePresence>
+          {statusMsg.type && (
+            <motion.div
+              role="status"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.25 }}
+              className={
+                "mb-4 rounded-[12px] px-4 py-3 text-sm md:text-base " +
+                (statusMsg.type === "success"
+                  ? "bg-green-50 text-green-700 border border-green-200"
+                  : "bg-red-50 text-red-700 border border-red-200")
+              }
+            >
+              {statusMsg.text}
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <form onSubmit={handleSubmit} noValidate className="space-y-4">
           <div className="flex md:flex-row flex-col w-full justify-between gap-5">
@@ -198,10 +218,10 @@ const Contact: React.FC = () => {
                 name="firstName"
                 placeholder="First Name"
                 className={
-                  "px-[26px] py-[14px] w-full rounded-[12px] border " +
+                  "px-[26px] py-[14px] w-full rounded-[12px] border transition-shadow focus:shadow-sm " +
                   (errors.firstName
                     ? "border-red-400 focus:outline-red-500"
-                    : "border-[#E6E6E6]")
+                    : "border-[#E6E6E6] focus:outline-primary/40")
                 }
                 type="text"
                 value={values.firstName}
@@ -235,10 +255,10 @@ const Contact: React.FC = () => {
                 name="lastName"
                 placeholder="Last Name"
                 className={
-                  "px-[26px] py-[14px] w-full rounded-[12px] border " +
+                  "px-[26px] py-[14px] w-full rounded-[12px] border transition-shadow focus:shadow-sm " +
                   (errors.lastName
                     ? "border-red-400 focus:outline-red-500"
-                    : "border-[#E6E6E6]")
+                    : "border-[#E6E6E6] focus:outline-primary/40")
                 }
                 type="text"
                 value={values.lastName}
@@ -261,7 +281,7 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex md:flex-row flex-col w-full justify-between  gap-5">
+          <div className="flex md:flex-row flex-col w-full justify-between gap-5">
             <div className="space-y-2 w-full">
               <label
                 className="text-[16px] md:text-[20px] text-desc font-medium"
@@ -274,10 +294,10 @@ const Contact: React.FC = () => {
                 name="email"
                 placeholder="E-mail Address"
                 className={
-                  "px-[26px] py-[14px] w-full rounded-[12px] border " +
+                  "px-[26px] py-[14px] w-full rounded-[12px] border transition-shadow focus:shadow-sm " +
                   (errors.email
                     ? "border-red-400 focus:outline-red-500"
-                    : "border-[#E6E6E6]")
+                    : "border-[#E6E6E6] focus:outline-primary/40")
                 }
                 type="email"
                 value={values.email}
@@ -310,10 +330,10 @@ const Contact: React.FC = () => {
                 name="phone"
                 placeholder="e.g +87 762 77652"
                 className={
-                  "px-[26px] py-[14px] w-full rounded-[12px] border " +
+                  "px-[26px] py-[14px] w-full rounded-[12px] border transition-shadow focus:shadow-sm " +
                   (errors.phone
                     ? "border-red-400 focus:outline-red-500"
-                    : "border-[#E6E6E6]")
+                    : "border-[#E6E6E6] focus:outline-primary/40")
                 }
                 type="tel"
                 value={values.phone}
@@ -345,10 +365,10 @@ const Contact: React.FC = () => {
               id="message"
               name="message"
               className={
-                "px-[26px] w-full h-[132px] py-[14px] rounded-[12px] border " +
+                "px-[26px] w-full h=[132px] md:h-[132px] py-[14px] rounded-[12px] border transition-shadow focus:shadow-sm " +
                 (errors.message
                   ? "border-red-400 focus:outline-red-500"
-                  : "border-[#E6E6E6]")
+                  : "border-[#E6E6E6] focus:outline-primary/40")
               }
               value={values.message}
               onChange={onChange("message")}
@@ -368,16 +388,40 @@ const Contact: React.FC = () => {
           </div>
 
           <div className="mt-[30px]">
-            <button
-              className="bg-primary  py-[12px] md:py-[18px] font-bold text-[16px] md:text-2xl w-full text-center rounded-full text-white disabled:opacity-60 disabled:cursor-not-allowed"
+            <motion.button
+              className="bg-primary py-[12px] md:py-[18px] font-bold text-[16px] md:text-2xl w-full text-center rounded-full text-white disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               type="submit"
               disabled={isSubmitting}
+              whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+              whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
             >
+              {isSubmitting && (
+                <svg
+                  className="animate-spin h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="white"
+                    strokeOpacity="0.25"
+                    strokeWidth="4"
+                  />
+                  <path
+                    d="M22 12a10 10 0 0 0-10-10"
+                    stroke="white"
+                    strokeWidth="4"
+                  />
+                </svg>
+              )}
               {isSubmitting ? "Sending…" : "Send Message"}
-            </button>
+            </motion.button>
           </div>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 };

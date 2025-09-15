@@ -1,3 +1,6 @@
+import React from "react";
+import { motion } from "framer-motion";
+
 import Soumik from "@/assets/images/soumik.webp";
 import Thomas from "@/assets/images/thomas.webp";
 import Devin from "@/assets/images/devin.webp";
@@ -38,42 +41,82 @@ const Team = () => {
     },
   ];
 
+  // Animations
+  const container = {
+    hidden: {},
+    show: {
+      transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+    },
+  };
+
+  const card = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  };
+
+  const bullet = {
+    hidden: { opacity: 0, x: -12 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.4 } },
+  };
+
   return (
-    <div className="px-4">
-      <div className="text-center">
-        <button className="bg-primary   text-2xl font-semibold  text-white rounded-full px-[24px] py-[10px] mx-auto">
+    <div id="team" className="px-4">
+      {/* Header */}
+      <motion.div
+        className="text-center"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.6 }}
+      >
+        <button className="bg-primary text-2xl font-semibold text-white rounded-full px-[24px] py-[10px] mx-auto">
           Our Team
         </button>
-      </div>
-      <div className="flex justify-center md:flex-row flex-col items-start max-w-[1265px] gap-[20px] mx-auto grid-cols-3 place-items-center py-[50px]">
-        {data.map((item, i) => (
-          <div
-            className="w-full md:w-[409px] space-y-[24px] md:space-y-[47px] px-[24px] py-[20px] bg-[#F7F7F7]  rounded-[20px]"
-            key={i}
+      </motion.div>
+
+      {/* Team Cards */}
+      <motion.div
+        className="flex justify-center md:flex-row flex-col items-start max-w-[1265px] gap-[20px] mx-auto py-[50px]"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        {data.map((item) => (
+          <motion.div
+            key={item.id}
+            variants={card}
+            className="w-full md:w-[409px] space-y-[24px] md:space-y-[47px] px-[24px] py-[20px] bg-[#F7F7F7] rounded-[20px] hover:shadow-md transition-shadow"
           >
-            <div className="w-full md:w-[361px] overflow-hidden ">
-              <img src={item.image} alt="" />
-            </div>
+            {/* Image */}
+            <motion.div
+              className="w-full md:w-[361px] overflow-hidden rounded-[12px]"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.4 }}
+            >
+              <img src={item.image} alt={item.name} className="w-full h-auto" />
+            </motion.div>
+
+            {/* Text Content */}
             <div>
               <h2 className="text-[18px] md:text-[24px] leading-[100%] font-bold text-primary">
                 {item.name}
               </h2>
-              <p className="text-[#484848] pt-[13px] pb-4 md:pb-[20px] text-[16px] md:text-[20px] font-light  italic">
+              <p className="text-[#484848] pt-[13px] pb-4 md:pb-[20px] text-[16px] md:text-[20px] font-light italic">
                 {item.role}
               </p>
-              <div>
-                <ul className="list-disc pl-4">
-                  {item.bullets.map((bl) => (
-                    <li>
-                      <p className="text-[14px] text-[#484848] ">{bl}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+
+              <ul className="list-disc pl-4 space-y-2">
+                {item.bullets.map((bl, idx) => (
+                  <motion.li key={idx} variants={bullet}>
+                    <p className="text-[14px] text-[#484848]">{bl}</p>
+                  </motion.li>
+                ))}
+              </ul>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

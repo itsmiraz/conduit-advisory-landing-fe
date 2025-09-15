@@ -9,19 +9,19 @@ const Header = () => {
 
   const navLinks = [
     {
-      link: "/",
+      link: "#about",
       label: "About Us",
     },
     {
-      link: "/",
+      link: "#team",
       label: "Our Team",
     },
     {
-      link: "/",
+      link: "#services",
       label: "Services",
     },
     {
-      link: "/",
+      link: "#contact",
       label: "Contact Us",
     },
   ];
@@ -36,7 +36,10 @@ const Header = () => {
         <ul className="hidden md:flex  items-center gap-x-5">
           {navLinks.map((item, i) => (
             <li key={i} className="text-[20px] font-regular ">
-              <a className="cursor-pointer transition-all ease-in-out duration-300 ">
+              <a
+                href={item.link}
+                className="cursor-pointer transition-all ease-in-out duration-300 "
+              >
                 {item.label}
               </a>
             </li>

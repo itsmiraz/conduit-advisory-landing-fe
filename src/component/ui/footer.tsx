@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import logo from "@/assets/images/logo.svg?url";
 import Phone from "@/assets/icons/Phone.svg";
 import Location from "@/assets/icons/Location.svg";
@@ -9,10 +10,10 @@ export default function Footer() {
       id: "menus",
       title: "Menus",
       items: [
-        { label: "About Us", href: "/about" },
-        { label: "Our Team", href: "/team" },
-        { label: "Services", href: "/services" },
-        { label: "Contact Us", href: "/contact" },
+        { label: "About Us", href: "#about" },
+        { label: "Our Team", href: "#team" },
+        { label: "Services", href: "#services" },
+        { label: "Contact Us", href: "#contact" },
       ],
     },
     {
@@ -53,11 +54,7 @@ export default function Footer() {
           label: "info@conduitadvisors.co.uk",
           href: "mailto:info@conduitadvisors.co.uk",
         },
-        {
-          type: "phone",
-          label: "+ (255) 325-1113",
-          href: "tel:+2553251113",
-        },
+        { type: "phone", label: "+ (255) 325-1113", href: "tel:+2553251113" },
       ],
     },
   ];
@@ -71,76 +68,113 @@ export default function Footer() {
     mailHref: "mailto:info@conduitadvisors.co.uk",
   };
 
+  // Motion variants
+  const grid = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
+  };
+  const col = {
+    hidden: { opacity: 0, y: 18 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
+  };
+  const listItem = {
+    hidden: { opacity: 0, y: 8 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.35 } },
+  };
+
   return (
-    <footer className="w-full footerDropShadow ">
+    <footer className="w-full footerDropShadow">
       {/* Top section */}
       <div className="max-w-[1441px] mx-auto px-5 md:px-6 lg:px-8 py-10 md:py-12">
-        <div className="grid grid-cols-1 place-items-center text-center md:text-start md:place-items-start md:grid-cols-[1.2fr,1fr,1fr,1.2fr] gap-10 md:gap-12">
+        <motion.div
+          className="grid grid-cols-1 place-items-center text-center md:text-start md:place-items-start md:grid-cols-[1.2fr,1fr,1fr,1.2fr] gap-10 md:gap-12"
+          variants={grid}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+        >
           {/* Brand block */}
-          <div className="">
-            <div className=" flex items-center md:items-start justify-center md:justify-start">
-              <img src={logo} alt="Conduit" className="md:-translate-x-8" />
+          <motion.div variants={col} className="">
+            <div className="flex items-center md:items-start justify-center md:justify-start">
+              <img
+                src={logo}
+                alt="Conduit"
+                className="md:-translate-x-8"
+                // initial={{ opacity: 0, scale: 0.96 }}
+                // whileInView={{ opacity: 1, scale: 1 }}
+                // viewport={{ once: true, amount: 0.5 }}
+                // transition={{ duration: 0.5, ease: "easeOut" }}
+              />
             </div>
-            <p className=" text-sm leading-6 text-neutral-700 max-w-xs">
+            <p className="text-sm leading-6 text-neutral-700 max-w-xs mt-3">
               {brand.tagline}
             </p>
-            <div className="mt-6 flex justify-center md:justify-start items-center gap-3">
-              <a
-                href={brand.phoneHref}
-                aria-label="Call"
-                className="h-10 w-10 rounded-full bg-neutral-200 hover:bg-neutral-300 transition flex items-center justify-center"
-              >
-                <Phone />
-              </a>
-              <a
-                href={brand.mapHref}
-                aria-label="Location"
-                className="h-10 w-10 rounded-full bg-neutral-200 hover:bg-neutral-300 transition flex items-center justify-center"
-              >
-                <Location />
-              </a>
-              <a
-                href={brand.mailHref}
-                aria-label="Email"
-                className="h-10 w-10 rounded-full bg-neutral-200 hover:bg-neutral-300 transition flex items-center justify-center"
-              >
-                <Message />
-              </a>
-            </div>
-          </div>
 
-          {/* Map the three right columns */}
+            <div className="mt-6 flex justify-center md:justify-start items-center gap-3">
+              {[
+                { href: brand.phoneHref, label: "Call", Icon: Phone },
+                { href: brand.mapHref, label: "Location", Icon: Location },
+                { href: brand.mailHref, label: "Email", Icon: Message },
+              ].map(({ href, label, Icon }, i) => (
+                <motion.a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="h-10 w-10 rounded-full bg-neutral-200 hover:bg-neutral-300 transition flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-neutral-400"
+                  whileHover={{ scale: 1.06 }}
+                  whileTap={{ scale: 0.96 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 18 }}
+                >
+                  <Icon />
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right columns */}
           {data.map((group) => (
-            <div key={group.id}>
+            <motion.div key={group.id} variants={col}>
               <h4 className="text-base font-semibold text-neutral-900">
                 {group.title}
               </h4>
-              <ul className="mt-4 space-y-3">
+              <motion.ul
+                className="mt-4 space-y-3"
+                variants={{
+                  hidden: {},
+                  show: { transition: { staggerChildren: 0.06 } },
+                }}
+              >
                 {group.items.map((item, idx) => (
-                  <li key={idx}>
+                  <motion.li key={idx} variants={listItem}>
                     <a
                       href={item.href}
-                      className="text-neutral-700 hover:text-neutral-900"
+                      className="text-neutral-700 hover:text-neutral-900 transition-colors"
                     >
                       {item.label}
                     </a>
-                  </li>
+                  </motion.li>
                 ))}
-              </ul>
-            </div>
+              </motion.ul>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* Bottom bar */}
-      <div className="bg-[#B7924B]">
+      <motion.div
+        className="bg-[#B7924B]"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
+      >
         <div className="max-w-[1441px] mx-auto px-5 md:px-6 lg:px-8 py-3 flex flex-col md:flex-row items-center justify-between text-sm text-neutral-900">
           <p>© 2025 Commercial Real Estate Consulting</p>
           <a href="#" className="mt-2 md:mt-0 hover:underline">
             Powered by Vortexpert
           </a>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 }
