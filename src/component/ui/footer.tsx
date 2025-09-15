@@ -75,16 +75,16 @@ export default function Footer() {
     <footer className="w-full footerDropShadow ">
       {/* Top section */}
       <div className="max-w-[1441px] mx-auto px-5 md:px-6 lg:px-8 py-10 md:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-[1.2fr,1fr,1fr,1.2fr] gap-10 md:gap-12">
+        <div className="grid grid-cols-1 place-items-center text-center md:text-start md:place-items-start md:grid-cols-[1.2fr,1fr,1fr,1.2fr] gap-10 md:gap-12">
           {/* Brand block */}
           <div className="">
-            <div className=" flex items-start justify-start">
-              <img src={logo} alt="Conduit" className="-translate-x-8" />
+            <div className=" flex items-center md:items-start justify-center md:justify-start">
+              <img src={logo} alt="Conduit" className="md:-translate-x-8" />
             </div>
             <p className=" text-sm leading-6 text-neutral-700 max-w-xs">
               {brand.tagline}
             </p>
-            <div className="mt-6 flex items-center gap-3">
+            <div className="mt-6 flex justify-center md:justify-start items-center gap-3">
               <a
                 href={brand.phoneHref}
                 aria-label="Call"

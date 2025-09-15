@@ -46,29 +46,33 @@ const About = () => {
   ];
 
   return (
-    <div className="mt-[123px]">
+    <div className="mt-[123px] px-4">
       <div className="flex justify-center items-center flex-col">
         <button className="bg-primary text-2xl font-semibold  text-white rounded-full px-[24px] py-[10px] mx-auto">
           About Us
         </button>
-        <p className="italic text-[25px] text-center text-desc font-light  pt-[28px]">
+        <p className="italic text-[14px] md:text-[25px]  text-center text-desc font-light  pt-[28px]">
           “Whether you’re bridging from traditional finance or already building
           in Web3, we provide disciplined <br className="md:block hidden" />{" "}
           advisory, deal structuring, and token strategy to move with
           confidence.”
         </p>
       </div>
-      <div className="grid max-w-[1264px] mt-10 mx-auto grid-cols-1 md:grid-cols-3 gap-x-[20px] gap-y-[66px]">
+      <div className="grid max-w-[1264px] mt-10 mx-auto grid-cols-1 md:grid-cols-3 gap-x-[20px] gap-y-5 md:gap-y-[66px]">
         {services.map((item, i) => (
           <div
-            className="bg-[#FBFBFB] w-[408px] border border-[#EFEFEF] p-[24px]  space-y-[24px] rounded-[20px]"
+            className="bg-[#FBFBFB] w-full md:w-[408px] border border-[#EFEFEF] p-[24px]  space-y-[12px] md:space-y-[24px] rounded-[20px]"
             key={i}
           >
-            <div>{item.icon}</div>
-            <h2 className="text-[24px] leading-[110%] font-bold text-desc ">
-              {item.title}
-            </h2>
-            <p className="text-desc text-[16px] ">{item.description}</p>
+            <div className="flex md:flex-col flex-row items-center md:items-start gap-5">
+              <div>{item.icon}</div>
+              <h2 className=" text-[16px] md:text-[24px] leading-[110%] font-bold text-desc ">
+                {item.title}
+              </h2>
+            </div>
+            <p className="text-desc text-[14px] md:text-[16px] ">
+              {item.description}
+            </p>
           </div>
         ))}
       </div>

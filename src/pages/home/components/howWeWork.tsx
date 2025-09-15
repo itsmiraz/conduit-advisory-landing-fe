@@ -41,20 +41,26 @@ const HowWeWork = () => {
   ];
 
   return (
-    <div className="bg-primary my-[188px]  px-[96px] py-[120px]">
-      <h2 className="text-[#F7F7F7] text-[24px] font-bold">How We Work</h2>
+    <div className="bg-primary md:my-[188px] my-[63px]  px-[28px] md:px-[96px] py-[32px] md:py-[120px]">
+      <h2 className="text-[#F7F7F7] text-[24px] md:text-start text-end font-bold">
+        How We Work
+      </h2>
       <div>
         {data.map((item, i) => (
           <div
             key={i}
-            className="grid place-items-start grid-cols-2 justify-between items-start py-10  border-b border-[#1C1C1C]"
+            className="grid place-items-start grid-cols-1 md:grid-cols-2 justify-between items-start py-4  md:py-10  border-b border-[#D6D6D6] md:border-[#1C1C1C]"
           >
-            <h3 className="text-[#F7F7F7] font-medium text-[40px]">
+            <h3 className="text-[#F7F7F7] font-medium text-[20px] md:text-[40px]">
               {item.title}
             </h3>
-            <div className="space-y-[20px]">
-              <p className="text-[#F7F7F7] text-xl ">{item.paragraphs[0]}</p>
-              <p className="text-[#F7F7F7] text-xl ">{item.paragraphs[1]}</p>
+            <div className="space-y-[20px] mt-[12px] md:mt-0">
+              <p className="text-[#F7F7F7] text-sm md:text-xl ">
+                {item.paragraphs[0]}
+              </p>
+              <p className="text-[#F7F7F7] text-sm md:text-xl ">
+                {item.paragraphs[1]}
+              </p>
             </div>
           </div>
         ))}
