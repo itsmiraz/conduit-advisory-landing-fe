@@ -76,7 +76,7 @@ const Team = () => {
 
       {/* Team Cards */}
       <motion.div
-        className="flex justify-center md:flex-row flex-col items-start max-w-[1265px] gap-[20px] mx-auto py-[50px]"
+        className="flex justify-center lg:flex-nowrap md:flex-wrap md:flex-row flex-col items-start max-w-[1265px] gap-[20px] mx-auto py-[50px]"
         variants={container}
         initial="hidden"
         whileInView="show"
@@ -86,11 +86,11 @@ const Team = () => {
           <motion.div
             key={item.id}
             variants={card}
-            className="w-full md:w-[409px] space-y-[24px] md:space-y-[47px] px-[24px] py-[20px] bg-[#F7F7F7] rounded-[20px] hover:shadow-md transition-shadow"
+            className="w-full md:w-[350px] lg:w-[409px] space-y-[24px] md:space-y-[47px] px-[24px] py-[20px] bg-[#F7F7F7] rounded-[20px] hover:shadow-md transition-shadow"
           >
             {/* Image */}
             <motion.div
-              className="w-full md:w-[361px] overflow-hidden rounded-[12px]"
+              className="w-full lg:w-[361px] overflow-hidden rounded-[12px]"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.4 }}
             >

@@ -19,7 +19,7 @@ const item = {
 
 const Partnership = () => {
   return (
-    <div className="max-w-[1263px] px-4 mt-32 flex md:flex-row flex-col-reverse items-center justify-between gap-10 mx-auto">
+    <div className="max-w-[1263px] px-4 mt-32 flex lg:flex-row flex-col-reverse items-center justify-between gap-10 mx-auto">
       {/* Left column */}
       <motion.div
         className="md:w-[578px]"

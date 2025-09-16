@@ -52,11 +52,11 @@ const HowWeWork = () => {
   return (
     <div
       id="services"
-      className="bg-primary md:my-[188px] my-[63px] px-[28px] md:px-[96px] py-[32px] md:py-[120px]"
+      className="bg-primary md:my-[188px] my-[63px] px-[28px]  lg:px-[96px] py-[32px] md:py-[120px]"
     >
       {/* Header */}
       <motion.h2
-        className="text-[#F7F7F7] text-[24px] md:text-start text-end font-bold"
+        className="text-[#F7F7F7] text-[24px] md:text-start font-bold"
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}

@@ -16,30 +16,30 @@ export default function Footer() {
         { label: "Contact Us", href: "#contact" },
       ],
     },
-    {
-      id: "services",
-      title: "Services",
-      items: [
-        { label: "Law Firms", href: "/services/law-firms" },
-        {
-          label: "Institutional Investment Firms",
-          href: "/services/institutional-investment-firms",
-        },
-        {
-          label: "Real Estate Advisors & Brokers",
-          href: "/services/real-estate-advisors-brokers",
-        },
-        {
-          label: "Real Estate Lending Banks",
-          href: "/services/real-estate-lending-banks",
-        },
-        {
-          label: "Trustee & Financial Services",
-          href: "/services/trustee-financial-services",
-        },
-        { label: "One-to-One Coaching", href: "/services/one-to-one-coaching" },
-      ],
-    },
+    // {
+    //   id: "services",
+    //   title: "Services",
+    //   items: [
+    //     { label: "Law Firms", href: "/services/law-firms" },
+    //     {
+    //       label: "Institutional Investment Firms",
+    //       href: "/services/institutional-investment-firms",
+    //     },
+    //     {
+    //       label: "Real Estate Advisors & Brokers",
+    //       href: "/services/real-estate-advisors-brokers",
+    //     },
+    //     {
+    //       label: "Real Estate Lending Banks",
+    //       href: "/services/real-estate-lending-banks",
+    //     },
+    //     {
+    //       label: "Trustee & Financial Services",
+    //       href: "/services/trustee-financial-services",
+    //     },
+    //     { label: "One-to-One Coaching", href: "/services/one-to-one-coaching" },
+    //   ],
+    // },
     {
       id: "contact",
       title: "Contact Info",
@@ -87,7 +87,7 @@ export default function Footer() {
       {/* Top section */}
       <div className="max-w-[1441px] mx-auto px-5 md:px-6 lg:px-8 py-10 md:py-12">
         <motion.div
-          className="grid grid-cols-1 place-items-center text-center md:text-start md:place-items-start md:grid-cols-[1.2fr,1fr,1fr,1.2fr] gap-10 md:gap-12"
+          className="grid grid-cols-1 place-items-center text-center md:text-start md:place-items-start md:grid-cols-[1.2fr,1fr,1.2fr] gap-10 md:gap-12"
           variants={grid}
           initial="hidden"
           whileInView="show"
@@ -96,21 +96,13 @@ export default function Footer() {
           {/* Brand block */}
           <motion.div variants={col} className="">
             <div className="flex items-center md:items-start justify-center md:justify-start">
-              <img
-                src={logo}
-                alt="Conduit"
-                className="md:-translate-x-8"
-                // initial={{ opacity: 0, scale: 0.96 }}
-                // whileInView={{ opacity: 1, scale: 1 }}
-                // viewport={{ once: true, amount: 0.5 }}
-                // transition={{ duration: 0.5, ease: "easeOut" }}
-              />
+              <img src={logo} alt="Conduit" className="md:-translate-x-8" />
             </div>
-            <p className="text-sm leading-6 text-neutral-700 max-w-xs mt-3">
+            <p className="text-sm leading-6 text-neutral-700 max-w-xs ">
               {brand.tagline}
             </p>
 
-            <div className="mt-6 flex justify-center md:justify-start items-center gap-3">
+            {/* <div className="mt-6 flex justify-center md:justify-start items-center gap-3">
               {[
                 { href: brand.phoneHref, label: "Call", Icon: Phone },
                 { href: brand.mapHref, label: "Location", Icon: Location },
@@ -128,7 +120,7 @@ export default function Footer() {
                   <Icon />
                 </motion.a>
               ))}
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Right columns */}
@@ -169,7 +161,9 @@ export default function Footer() {
         transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
       >
         <div className="max-w-[1441px] mx-auto px-5 md:px-6 lg:px-8 py-3 flex flex-col md:flex-row items-center justify-between text-sm text-neutral-900">
-          <p>© 2025 Commercial Real Estate Consulting</p>
+          <p>
+            © 2025 Conduit Advisors instead of Commercial Real Estate Consulting
+          </p>
           <a href="#" className="mt-2 md:mt-0 hover:underline">
             Powered by Vortexpert
           </a>

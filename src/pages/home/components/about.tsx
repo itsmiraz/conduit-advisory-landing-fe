@@ -81,7 +81,7 @@ const About = () => {
 
       {/* Service Cards */}
       <motion.div
-        className="grid max-w-[1264px] mt-10 mx-auto grid-cols-1 md:grid-cols-3 gap-x-[20px] gap-y-5 md:gap-y-[66px]"
+        className="grid max-w-[1264px] mt-10 mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[20px] gap-y-5 md:gap-y-[66px]"
         variants={container}
         initial="hidden"
         whileInView="show"
@@ -91,7 +91,7 @@ const About = () => {
           <motion.div
             key={i}
             variants={itemVarient}
-            className="bg-[#FBFBFB] w-full md:w-[408px] border border-[#EFEFEF] p-[24px] space-y-[12px] md:space-y-[24px] rounded-[20px] hover:shadow-md transition-shadow"
+            className="bg-[#FBFBFB] w-full lg:w-[408px] border border-[#EFEFEF] p-[24px] space-y-[12px] md:space-y-[24px] rounded-[20px] hover:shadow-md transition-shadow"
           >
             <div className="flex md:flex-col flex-row items-center md:items-start gap-5">
               <motion.div

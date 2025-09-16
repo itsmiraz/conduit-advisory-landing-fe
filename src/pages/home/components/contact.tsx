@@ -141,7 +141,7 @@ const Contact: React.FC = () => {
   return (
     <div
       id="contact"
-      className="py-[140px] px-4 md:px-10 flex md:flex-row flex-col items-center justify-center gap-y-10 gap-x-8"
+      className="py-[140px] px-4 md:px-10 flex lg:flex-row flex-col items-center justify-center gap-y-10 gap-x-8"
     >
       {/* Left panel */}
       <motion.div
@@ -172,7 +172,7 @@ const Contact: React.FC = () => {
 
       {/* Right panel (form) */}
       <motion.div
-        className="bg-[#F7F7F7] w-full md:w-[538px] rounded-[20px] py-[30px] px-[16px] md:px-[40px] gap-x-[23px]"
+        className="bg-[#F7F7F7] w-full lg:w-[538px] rounded-[20px] py-[30px] px-[16px] md:px-[40px] gap-x-[23px]"
         {...fadeIn("right", 0.1)}
       >
         <h2 className="text-desc font-bold text-[28px] md:text-[36px]">

@@ -38,7 +38,7 @@ const Header = () => {
             <li key={i} className="text-[20px] font-regular ">
               <a
                 href={item.link}
-                className="cursor-pointer transition-all ease-in-out duration-300 "
+                className="cursor-pointer hover:text-primary  transition-all ease-in-out duration-300 "
               >
                 {item.label}
               </a>
