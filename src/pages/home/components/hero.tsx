@@ -5,7 +5,7 @@ import LeftArrow from "@/assets/icons/LeftArrow.svg";
 const Hero = () => {
   return (
     <div>
-      <div className="lg:heroBg max-w-[1340px] gap-y-[25px] lg:h-[717px] mx-auto overflow-hidden px-[32px] lg:px-[77px] py-5 rounded-[34px] lg:flex-row flex-col-reverse flex justify-between items-center">
+      <div className="heroBg max-w-[1340px] gap-y-[25px] lg:h-[717px] mx-auto overflow-hidden px-[32px] lg:px-[77px] py-5 rounded-[34px] lg:flex-row flex-col-reverse flex justify-between items-center">
         {/* Left Content */}
         <motion.div
           className="max-w-[541px]"

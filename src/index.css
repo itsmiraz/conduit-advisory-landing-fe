@@ -44,3 +44,9 @@ html {
 .footerDropShadow {
   box-shadow: 0px -4px 15.5px 0px rgba(0, 0, 0, 0.07);
 }
+@media (max-width: 768px) {
+  /* Adjust breakpoint as needed */
+  .heroBg {
+    background: none !important; /* remove gradient */
+  }
+}

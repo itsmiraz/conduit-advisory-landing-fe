@@ -12,9 +12,9 @@ const Team = () => {
       name: "Thomas Gaffney",
       role: "Founder & Managing Member",
       bullets: [
-        "COO, OFA Group (NASDAQ: OFAL): Drives AI strategy, crypto treasury, and cross-border M&A.",
-        "Ex–corporate attorney: Advised VCs and startups on financings and token launches.",
-        "Global experience: Combines legal, financial, and ops expertise to scale ventures.",
+        `<strong>COO, OFA Group (NASDAQ: OFAL):</strong> Drives AI strategy, crypto treasury, and cross-border M&A.`,
+        `<strong>Ex–corporate attorney:</strong> Advised VCs and startups on financings and token launches.`,
+        `<strong>Global experience:</strong> Combines legal, financial, and ops expertise to scale ventures.`,
       ],
       image: Thomas,
     },
@@ -23,9 +23,9 @@ const Team = () => {
       name: "Devin Ardalan",
       role: "Vice President",
       bullets: [
-        "VP, Everest Ventures Group: Leads US expansion, fundraising, and partnerships.",
-        "Web3 operator: Ex–J17 Crypto, closed deals and hosted ETHDenver.",
-        "Founder: Built MVPs at Dandelion, blending product and venture skills.",
+        `<strong>VP, Everest Ventures Group:</strong> Leads US expansion, fundraising, and partnerships.`,
+        `<strong>Web3 operator:</strong> Ex–J17 Crypto, closed deals and hosted ETHDenver.`,
+        `<strong>Founder:</strong> Built MVPs at Dandelion, blending product and venture skills.`,
       ],
       image: Devin,
     },
@@ -34,8 +34,8 @@ const Team = () => {
       name: "Soumik Dey",
       role: "Technical Consultant",
       bullets: [
-        "Co-Founder, CopyFi: Building an advanced copy-trading and risk-management platform bridging retail traders with institutional frameworks.",
-        "Web3 builder: Experienced in token strategy, dApps, market analytics, and automation systems supporting startups and advisory clients.",
+        `<strong>Co-Founder, CopyFi:</strong> Building an advanced copy-trading and risk-management platform bridging retail traders with institutional frameworks.`,
+        `<strong>Web3 builder:</strong> Experienced in token strategy, dApps, market analytics, and automation systems supporting startups and advisory clients.`,
       ],
       image: Soumik,
     },
@@ -109,7 +109,12 @@ const Team = () => {
               <ul className="list-disc pl-4 space-y-2">
                 {item.bullets.map((bl, idx) => (
                   <motion.li key={idx} variants={bullet}>
-                    <p className="text-[14px] text-[#484848]">{bl}</p>
+                    <p
+                      dangerouslySetInnerHTML={{ __html: bl }}
+                      className="text-[14px] text-[#484848]"
+                    >
+                      {}
+                    </p>
                   </motion.li>
                 ))}
               </ul>
