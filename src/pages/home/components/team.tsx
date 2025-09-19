@@ -76,7 +76,7 @@ const Team = () => {
 
       {/* Team Cards */}
       <motion.div
-        className="flex justify-center flex-wrap md:flex-row flex-col items-start max-w-[1465px] gap-[20px] mx-auto py-[50px]"
+        className="flex justify-center flex-wrap md:flex-row flex-col items-start max-w-[1465px] gap-[20px] sm:px-20 mx-auto py-[50px]"
         variants={container}
         initial="hidden"
         whileInView="show"
