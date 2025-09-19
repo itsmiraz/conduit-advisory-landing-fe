@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import logo from "@/assets/images/logo.svg?url";
+import Logo from "@/assets/images/logo.svg";
+import PhoneLogo from "@/assets/icons/phoneLogo.svg";
 import Phone from "@/assets/icons/Phone.svg";
 import Location from "@/assets/icons/Location.svg";
 import Message from "@/assets/icons/Message.svg";
@@ -96,7 +97,13 @@ export default function Footer() {
           {/* Brand block */}
           <motion.div variants={col} className="">
             <div className="flex items-center md:items-start justify-center md:justify-start">
-              <img src={logo} alt="Conduit" className="md:-translate-x-8" />
+              {/* <img src={logo} alt="Conduit" className="md:-translate-x-8" /> */}
+              <div className="hidden md:block">
+                <Logo />
+              </div>
+              <div className="md:hidden block">
+                <PhoneLogo />
+              </div>
             </div>
             <p className="text-sm leading-6 text-neutral-700 max-w-xs ">
               {brand.tagline}

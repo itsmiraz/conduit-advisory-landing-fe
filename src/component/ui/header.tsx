@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Logo from "@/assets/images/logo.svg?url";
+import Logo from "@/assets/images/logo.svg";
+import PhoneLogo from "@/assets/icons/phoneLogo.svg";
 import { motion } from "framer-motion";
 import Menu from "@/assets/icons/Menu.svg";
 import Close from "@/assets/icons/Close.svg";
@@ -30,8 +31,13 @@ const Header = () => {
     <div className="md:px-[20px]  ">
       <div className="max-w-[1441px]  z-40 mx-auto  p-[6px] font-sans flex justify-between relative items-center">
         <div className="pl-2">
-          <img src={Logo} className="md:w-fit w-[119px]" alt="" />
-          {/* <Logo /> */}
+          {/* <img src={Logo} className="md:w-fit w-[119px]" alt="" /> */}
+          <div className="hidden md:block">
+            <Logo />
+          </div>
+          <div className="md:hidden block">
+            <PhoneLogo />
+          </div>
         </div>
         <ul className="hidden md:flex  items-center gap-x-5">
           {navLinks.map((item, i) => (
@@ -67,8 +73,14 @@ const Header = () => {
             </button>
           </div>
           <div className="pt-[24px]">
-            <img src={Logo} className="w-[176px]" alt="" />
+            {/* <img src={Logo} className="w-[176px]" alt="" /> */}
             {/* <Logo /> */}
+            <div className="hidden md:block">
+              <Logo />
+            </div>
+            <div className="md:hidden block">
+              <PhoneLogo />
+            </div>
           </div>
           <ul className="flex pt-[24px] flex-col  items-center gap-5">
             {navLinks.map((item, i) => (
