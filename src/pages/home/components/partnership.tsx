@@ -88,7 +88,7 @@ const Partnership = () => {
         <motion.img
           src={PartnerImage}
           alt="Partners"
-          className="rounded-[16px]"
+          className="rounded-[16px] md:max-w-fit max-w-[500px] md:px-0 px-4"
           whileHover={{ y: -4 }}
           transition={{ type: "spring", stiffness: 200, damping: 20 }}
         />

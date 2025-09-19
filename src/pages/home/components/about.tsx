@@ -81,7 +81,7 @@ const About = () => {
 
       {/* Service Cards */}
       <motion.div
-        className="grid max-w-[1264px] mt-10 mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[20px] gap-y-5 md:gap-y-[66px]"
+        className="grid max-w-[1264px] mt-10 mx-auto grid-cols-1 md:grid-cols-2 place-items-center  xl:grid-cols-3 gap-x-[20px] gap-y-5 md:gap-y-[66px]"
         variants={container}
         initial="hidden"
         whileInView="show"
