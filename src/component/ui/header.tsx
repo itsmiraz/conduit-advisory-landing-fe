@@ -51,7 +51,7 @@ const Header = () => {
             </li>
           ))}
         </ul>
-        <div className="flex md:hidden items-center gap-x-2">
+        <div className="flex md:hidden  px-4 md:pr-0 items-center gap-x-2">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="block md:hidden"
