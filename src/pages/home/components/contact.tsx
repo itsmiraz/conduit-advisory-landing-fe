@@ -141,7 +141,7 @@ const Contact: React.FC = () => {
   return (
     <div
       id="contact"
-      className="py-[140px] px-4 md:px-10 flex lg:flex-row flex-col items-center justify-center gap-y-10 gap-x-8"
+      className="py-[66px] md:py-[140px] px-4 md:px-10 flex lg:flex-row flex-col items-center justify-center gap-y-10 gap-x-8"
     >
       {/* Left panel */}
       <motion.div

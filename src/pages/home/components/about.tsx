@@ -91,7 +91,7 @@ const About = () => {
           <motion.div
             key={i}
             variants={itemVarient}
-            className="bg-[#FBFBFB] w-full lg:w-[408px] border border-[#EFEFEF] p-[24px] space-y-[12px] md:space-y-[24px] rounded-[20px] hover:shadow-md transition-shadow"
+            className="bg-[#FBFBFB] w-full h-full lg:w-[408px] border border-[#EFEFEF] p-[24px] space-y-[12px] md:space-y-[24px] rounded-[20px] hover:shadow-md transition-shadow"
           >
             <div className="flex md:flex-col flex-row items-center md:items-start gap-5">
               <motion.div
