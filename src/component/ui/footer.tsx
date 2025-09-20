@@ -97,8 +97,8 @@ export default function Footer() {
           {/* Brand block */}
           <motion.div variants={col} className="">
             <div className="flex items-center md:items-start justify-center md:justify-start">
-              {/* <img src={logo} alt="Conduit" className="md:-translate-x-8" /> */}
-              <div className="hidden md:block">
+              {/* <img src={logo} alt="Conduit" className="" /> */}
+              <div className="hidden md:block md:-translate-x-8 translate-y-3">
                 <Logo />
               </div>
               <div className="md:hidden block">
